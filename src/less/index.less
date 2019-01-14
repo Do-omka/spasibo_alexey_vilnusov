@@ -3,6 +3,8 @@
 @md: ~'(max-width: 768px)';
 @sm: ~'(max-width: 576px)';
 
+@bg: #13599f;
+
 @media @xl {
 	// max-width: 1200px
 }
@@ -64,6 +66,185 @@ main {
 
 body {
 	height: 100%;
-	font-size: 16rem;
+	font-family: "Nissan Brand";
+	font-size: 22rem;
+	font-weight: 400;
 	line-height: 1.25;
+	color: #343e46;
+}
+
+.link {
+	text-decoration: underline;
+}
+
+body > header {
+	padding-top: 50rem;
+	
+	.header {
+		flex-direction: row;
+		justify-content: space-between;
+		
+		> * {
+			margin-bottom: 45rem;
+		}
+	}
+	
+	nav {
+		ul {
+			flex-direction: row;
+			font-family: "Nissan Brand";
+			font-size: 22rem;
+			font-weight: 400;
+			
+			li:not(:last-child) {
+				flex-direction: row;
+				margin-bottom: 20rem;
+				
+				&::after {
+					content: '•';
+					padding-right: 14rem;
+					padding-left: 14rem;
+				}
+			}
+		}
+		
+		.link {
+			color: #1775d1;
+		}
+	}
+	
+	.cell {
+		.number {
+			color: #0068e3;
+			font-size: 30px;
+			font-weight: 700;
+		}
+		.recall {
+			color: #343e46;
+			text-decoration: underline;
+		}
+	}
+}
+
+h2 {
+	font-family: "Nissan Brand";
+	font-size: 34rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	margin-bottom: 40rem;
+}
+
+h3 {
+	color: #343e46;
+	font-family: "Nissan Brand";
+	font-size: 30rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	margin-bottom: 35rem;
+}
+
+.btn {
+	align-self: flex-start;
+	padding: 25rem;
+	color: white;
+	font-size: 20rem;
+	text-transform: uppercase;
+	border-radius: 10px;
+	background-image: linear-gradient(to top, #b10028, #f00030);
+	box-shadow: 2px 2px 7px rgba(0, 0, 0, .35);
+	
+	&:hover {
+		background-image: linear-gradient(to top, #f00030, #b10028);
+	}
+}
+
+section.top {
+	padding-top: 60rem;
+	padding-bottom: 80rem;
+	color: white;
+	background-color: @bg;
+	background-image: url(../img/top.png);
+	background-size: cover;
+	
+	b {
+		font-family: "Nissan Brand - Bold";
+		font-weight: 700;
+	}
+	
+	.link {
+		margin-bottom: 50rem;
+	}
+}
+
+p, span, b {
+	display: inline-block;
+}
+
+p {
+	margin-bottom: 1em;
+}
+
+section.edu {
+	padding-top: 90rem;
+	
+	h2 {
+		align-self: center;
+	}
+	
+	li {
+		margin-bottom: .5em;
+	}
+}
+
+blockquote {
+	font-family: "Nissan Brand";
+	font-size: 25rem;
+	font-weight: bold;
+	font-style: italic;
+	color: #2c262a;
+	margin-bottom: 35rem;
+	
+	&::before {
+		content: '';
+		background: url(../img/q.png) center center no-repeat;
+		width: 56rem;
+		height: 40rem;
+		margin-bottom: 40rem;
+	}
+	&::after {
+		content: '';
+		align-self: flex-end;
+		background: url(../img/sign.png) center center no-repeat;
+		width: 186rem;
+		height: 117rem;
+		margin-bottom: 70rem;
+	}
+}
+
+.teachers {
+	.item {
+		flex-direction: row;
+		align-items: center;
+		margin-bottom: 60rem;
+		
+		img {
+			flex-shrink: 0;
+		}
+		.description {
+			padding: 25rem;
+			background-color: #ecf1f5;
+			font-size: 18rem;
+			
+			p {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+h4 {
+	font-family: "Nissan Brand";
+	font-size: 21rem;
+	font-weight: 700;
+	text-transform: uppercase;
 }
