@@ -1,0 +1,69 @@
+@xl: ~'(max-width: 1200px)';
+@lg: ~'(max-width: 992px)';
+@md: ~'(max-width: 768px)';
+@sm: ~'(max-width: 576px)';
+
+@media @xl {
+	// max-width: 1200px
+}
+@media @lg {
+	// max-width: 992px
+}
+@media @md {
+	// max-width: 768px
+}
+@media @sm {
+	// max-width: 576px
+}
+
+
+* {
+	all: unset;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+}
+
+*::before,
+*::after {
+	all: unset;
+	box-sizing: border-box;
+}
+
+head,
+script {
+	display: none;
+}
+
+html {
+	height: 100%;
+	font-size: 1px;
+}
+
+a[href],
+button,
+[type='button'] {
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+p,
+span {
+	display: inline-block;
+	hyphens: auto;
+}
+
+main {
+	flex-grow: 1;
+}
+
+.row {
+	flex-direction: row;
+}
+
+body {
+	height: 100%;
+	font-size: 16rem;
+	line-height: 1.25;
+}
