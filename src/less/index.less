@@ -144,7 +144,11 @@ h3 {
 }
 
 .btn {
-	align-self: flex-start;
+	max-width: 390rem;
+	// align-self: flex-start;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
 	padding: 25rem;
 	color: white;
 	font-size: 20rem;
@@ -247,4 +251,67 @@ h4 {
 	font-size: 21rem;
 	font-weight: 700;
 	text-transform: uppercase;
+}
+
+section.why {
+	padding: 85rem 0;
+	position: relative;
+	background-color: @bg;
+	color: white;
+	overflow: hidden;
+	
+	&::before {
+		position: absolute;
+		top: -340rem;
+		left: 800rem;
+		content: '';
+		width: 800rem;
+		height: 800rem;
+		background-color: #137af4;
+		border-radius: 50%;
+		opacity: 0.35;
+	}
+	
+	ol {
+		font-family: "Nissan Brand";
+		font-size: 20rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		margin-top: 80rem;
+		
+		li {
+			position: relative;
+			flex-direction: row;
+			
+			&::before {
+				position: absolute;
+				top: -32rem;
+				left: 50%;
+				color: #eeeded;
+				opacity: 0.08;
+				font-family: "Nissan Brand";
+				font-size: 120rem;
+				font-weight: 700;
+				align-self: center;
+			}
+
+			&:not(:last-child)::after {
+				position: absolute;
+				content: '';
+				width: 23px;
+				height: 18px;
+				background: svg-load('../img/arrow.svg');
+				right: 35px;
+				align-self: center;
+			}
+		}
+	}
+}
+
+ol {
+	counter-reset: i;
+	li::before {
+		counter-increment: i;
+		content: '0' counter(i);
+	}
 }
