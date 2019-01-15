@@ -57,6 +57,16 @@ script {
 html {
 	height: 100%;
 	font-size: 1px;
+
+	@media @lg {
+		font-size: .9px;
+	}
+	@media @md {
+		font-size: .8px;
+	}
+	@media @sm {
+		font-size: .7px;
+	}
 }
 
 a[href],
@@ -123,6 +133,7 @@ blockquote {
 	&::before {
 		content: '';
 		background: url(../img/q.png) center center no-repeat;
+		background-size: contain;
 		width: 56rem;
 		height: 40rem;
 		margin-bottom: 40rem;
@@ -131,8 +142,10 @@ blockquote {
 		content: '';
 		align-self: flex-end;
 		background: url(../img/sign.png) center center no-repeat;
+		background-size: contain;
 		width: 186rem;
 		height: 117rem;
+		margin-top: 30rem;
 		margin-bottom: 70rem;
 	}
 }
@@ -266,8 +279,14 @@ section.edu {
 		margin-bottom: 60rem;
 		
 		img {
-			flex-shrink: 0;
+			width: 190rem;
+			height: 178rem;
+			@media @sm {
+				max-width: 95px;
+				max-height: 89px;
+			}
 		}
+		
 		.description {
 			padding: 30rem 20rem 20rem 30rem;
 			background-color: #ecf1f5;
@@ -289,7 +308,7 @@ h4 {
 }
 
 section.why {
-	padding: 85rem 0;
+	padding-top: 85rem;
 	position: relative;
 	background-color: @bg;
 	color: white;
@@ -318,17 +337,18 @@ section.why {
 			position: relative;
 			flex-direction: row;
 			align-items: center;
+			margin-bottom: 80rem;
 			
 			&::before {
 				position: absolute;
-				// top: 0;
+				align-self: center;
 				left: 50%;
+				transform: translate(-25%);
 				color: #eeeded;
 				opacity: 0.08;
 				font-family: "Nissan Brand";
 				font-size: 120rem;
 				font-weight: 700;
-				align-self: center;
 			}
 			
 			&:not(:last-child)::after {
@@ -339,6 +359,10 @@ section.why {
 				background: svg-load('../img/arrow.svg');
 				right: 35px;
 				align-self: center;
+
+				@media @xl {
+					transform: rotate(90deg);
+				}
 			}
 		}
 	}
