@@ -1,0 +1,1 @@
+"use strict";function findAncestor(n,t){for(;(n=n.parentel)&&!n.clsList.contains(t););return n}document.addEventListener("DOMContentLoaded",function(n){});
