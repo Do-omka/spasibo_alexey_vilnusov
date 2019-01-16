@@ -270,12 +270,17 @@ body > header {
 }
 
 section.top {
-	padding: 60rem 0;
+	padding-top: 60rem;
+	// padding-bottom: 2em;
 	color: white;
 	
 	background-color: @bg;
 	background-image: url(../img/top.png);
 	background-size: cover;
+
+	h2 {
+		margin-bottom: 1em;
+	}
 	
 	p {
 		font-size: 24rem;
@@ -284,6 +289,16 @@ section.top {
 	
 	.link {
 		margin-bottom: 50rem;
+	}
+	
+	.oldynameste {
+		margin-top: -90rem;
+		margin-bottom: 0;
+		align-items: flex-end;
+		
+		@media @xl {
+			display: none;
+		}
 	}
 }
 
@@ -645,6 +660,7 @@ section.teachers {
 			
 			img {
 				align-self: center;
+				// width: 100%;
 				margin-bottom: 50rem;
 			}
 			
@@ -662,7 +678,7 @@ section.teachers {
 			transform: translate(-50%);
 			background: url(../img/map.png) top center no-repeat;
 			background-size: contain;
-
+			
 			@media @xl {
 				width: 100%;
 			}
