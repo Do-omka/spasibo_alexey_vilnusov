@@ -199,7 +199,7 @@ blockquote {
 	width: 100%;
 	padding-bottom: 65.5%;
 	overflow: hidden;
-
+	
 	> * {
 		position: absolute;
 		top: 6.5%;
@@ -304,7 +304,7 @@ section.top {
 	h2 {
 		margin-bottom: 1em;
 	}
-
+	
 	.btn {
 		margin-bottom: 2em;
 	}
@@ -322,7 +322,7 @@ section.top {
 		margin-top: -90rem;
 		margin-bottom: 0;
 		align-items: flex-end;
-
+		
 		img {
 			width: 100%;
 		}
@@ -335,13 +335,13 @@ section.top {
 
 section.edu {
 	padding-top: 90rem;
-
+	
 	.collage {
 		position: relative;
 		background-color: #fff;
 		border: 10px solid white;
 		align-items: flex-end;
-
+		
 		> * {
 			z-index: 0;
 		}
@@ -356,7 +356,7 @@ section.edu {
 				z-index: 1;
 			}
 		}
-
+		
 		.video {
 			position: absolute;
 			width: 64.16%;
@@ -368,7 +368,7 @@ section.edu {
 			height: 0;
 			background: url(../img/edu-left.png) left bottom no-repeat;
 			// z-index: -1;
-
+			
 			> * {
 				position: absolute;
 				top:0;
@@ -467,6 +467,22 @@ section.why {
 		font-weight: 700;
 		text-transform: uppercase;
 		margin-top: 80rem;
+		// overflow: hidden;
+		
+		.preload:nth-child(1) {
+			opacity: 0;
+			transform: translate(-50%);
+		}
+		
+		.preload:nth-child(2) {
+			opacity: 0;
+			transform: translate(-150%);
+		}
+		
+		.preload:nth-child(3) {
+			opacity: 0;
+			transform: translate(-250%);
+		}
 		
 		li {
 			position: relative;

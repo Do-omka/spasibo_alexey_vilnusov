@@ -40,10 +40,10 @@ function type(slctr) {
 							let texts = document.createTextNode(textCont[j][i])
 							text[j].appendChild(texts)
 							text[j].classList.remove('type')
-						}, 30 * i)
+						}, 20 * i)
 					}(i))
 				}
-			},	30 * j)
+			},	20 * j)
 		}(j))
 	}
 }
@@ -68,15 +68,38 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 
 window.addEventListener('load', (e)=> {
 	
-	let handler = onVisibilityChange(document.querySelector('.type'), function() {
+	let handlerType = onVisibilityChange(document.querySelector('.type'), function() {
 		type('.type')
+	});
 
+	let handlerFlow = onVisibilityChange(document.querySelector('section.why ol'), function() {
+		let li = document.querySelectorAll('section.why ol li')
+
+		// function flow(i) {
+		// 	li[i].classList.remove('preload')
+		// 	setTimeout(()=> {
+		// 		flow(i)
+		// 	}, 3000)
+		// }
+
+		for (let i = 0; i < li.length; i++) {
+			(function (i) {
+				setTimeout(()=> {
+					li[i].classList.remove('preload')
+
+				}, 500 * i)
+			})(i)
+		}
+		
 	});
 	
 	if (window.addEventListener) {
 		// addEventListener('DOMContentLoaded', handler, false);
 		// addEventListener('load', handler, false)
-		addEventListener('scroll', handler, false)
-		addEventListener('resize', handler, false)
+		addEventListener('scroll', handlerType, false)
+		addEventListener('resize', handlerType, false)
+		addEventListener('scroll', handlerFlow, false)
+		addEventListener('resize', handlerFlow, false)
+		
 	}
 })
