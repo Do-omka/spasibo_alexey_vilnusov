@@ -502,11 +502,22 @@ section.topics {
 }
 
 section.pricelist {
+	position: relative;
 	padding-top: 65rem;
-	height: 420rem;
 	color: white;
-	background-color: @blue;
 	// padding-bottom: 100rem;
+	padding-bottom: 55rem;
+	
+	&::before {
+		content: '';
+		position: absolute;
+		height: 420px;
+		top: 0;
+		width: 100%;
+		background-color: @blue;
+		// ????????????????????????????
+		z-index: -1;
+	}
 	
 	.package {
 		padding: 30rem;
