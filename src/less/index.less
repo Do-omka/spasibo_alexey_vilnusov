@@ -325,13 +325,6 @@ section.edu {
 			}
 		}
 		
-		[type='radio']:checked {
-			~ .description {
-				background-color: #0068e3;
-				color: white;
-			}
-		}
-		
 		.description {
 			padding: 30rem 20rem 20rem 30rem;
 			background-color: #ecf1f5;
@@ -658,6 +651,20 @@ section.teachers {
 		text-transform: none;
 	}
 	
+	:checked + label {
+		.description {
+			background-color: #0068e3;
+			color: white;
+		}
+	}
+	
+	#i:checked {
+		 ~ .radio .i {
+			background-color: #0000ff;
+		}
+		
+	}
+	
 	.bio {
 		position: relative;
 		margin-bottom: 30rem;
@@ -715,12 +722,14 @@ section.teachers {
 }
 
 .radio {
-	width: 12px;
-	height: 12px;
-	border: 2px solid #0000ff;
-	border-radius: 50%;
-
-	&-checked {
-		background-color: #0000ff;
+	flex-direction: row;
+	justify-content: center;
+	margin-bottom: 60rem;
+	label {
+		margin: 4px;
+		width: 12px;
+		height: 12px;
+		border: 2px solid #0000ff;
+		border-radius: 50%;
 	}
 }
