@@ -1,16 +1,11 @@
 function isElementInViewport (el) {
-	let rect = el.getBoundingClientRect()
 	
-	return (
-		rect.top >= 0 &&
-		rect.left >= 0 &&
-		rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*or $(window).height() */
-		rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
-	);
+	let rect = el.getBoundingClientRect();
+	return !(rect.bottom < 0 || rect.right < 0 || rect.left > window.innerWidth || rect.top > window.innerHeight)
 }
 
 function onVisibilityChange(el, callback) {
-	let old_visible
+	let old_visible = false
 	return function () {
 		let visible = isElementInViewport(el)
 		if (visible != old_visible) {
@@ -65,41 +60,28 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 	
 })
 
-
 window.addEventListener('load', (e)=> {
 	
 	let handlerType = onVisibilityChange(document.querySelector('.type'), function() {
 		type('.type')
-	});
-
+	})
+	
 	let handlerFlow = onVisibilityChange(document.querySelector('section.why ol'), function() {
 		let li = document.querySelectorAll('section.why ol li')
-
-		// function flow(i) {
-		// 	li[i].classList.remove('preload')
-		// 	setTimeout(()=> {
-		// 		flow(i)
-		// 	}, 3000)
-		// }
-
+		
 		for (let i = 0; i < li.length; i++) {
 			(function (i) {
 				setTimeout(()=> {
 					li[i].classList.remove('preload')
-
+					
 				}, 500 * i)
 			})(i)
 		}
 		
-	});
+	})
 	
-	if (window.addEventListener) {
-		// addEventListener('DOMContentLoaded', handler, false);
-		// addEventListener('load', handler, false)
-		addEventListener('scroll', handlerType, false)
-		addEventListener('resize', handlerType, false)
-		addEventListener('scroll', handlerFlow, false)
-		addEventListener('resize', handlerFlow, false)
-		
-	}
+	addEventListener('scroll', handlerType, false)
+	addEventListener('resize', handlerType, false)
+	addEventListener('scroll', handlerFlow, false)
+	addEventListener('resize', handlerFlow, false)
 })
