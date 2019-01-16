@@ -81,6 +81,8 @@ button,
 p,
 span {
 	display: inline-block;
+	text-overflow: ellipsis;
+	flex-shrink: 1;
 	// hyphens: auto;
 }
 
@@ -124,10 +126,6 @@ h3 {
 	text-transform: uppercase;
 	margin-bottom: 1em;
 	// align-self: center;
-}
-
-p, span {
-	display: inline-block;
 }
 
 p {
@@ -411,7 +409,7 @@ section.for {
 }
 
 .btn-2 {
-	.btn;
+	// .btn;
 	background-image: linear-gradient(to top, rgba(#0867d7, 1), rgba(#0575fa, 1));
 	align-self: center;
 	
@@ -573,6 +571,10 @@ section.pricelist {
 			font-weight: 700;
 			text-transform: uppercase;
 			margin-bottom: 35rem;
+		}
+
+		.btn {
+			align-self: center;
 		}
 	}
 }
