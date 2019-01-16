@@ -658,11 +658,40 @@ section.teachers {
 		}
 	}
 	
+	.slider-wrapper {
+		width: 100%;
+		overflow: hidden;
+		
+		.slider {
+			flex-direction: row;
+			flex-wrap: nowrap;
+			flex-shrink: 0;
+			transition: .3s ease all;
+		}
+	}
+	
 	#i:checked {
-		 ~ .radio .i {
+		~ .radio .i {
 			background-color: #0000ff;
 		}
 		
+		~ .slider-wrapper {
+			.slider {
+				transform: translate(-100%);
+			}
+		}
+	}
+
+	#j:checked {
+		~ .radio .j {
+			background-color: #0000ff;
+		}
+		
+		~ .slider-wrapper {
+			.slider {
+				transform: none;
+			}
+		}
 	}
 	
 	.bio {
@@ -673,7 +702,7 @@ section.teachers {
 			margin-bottom: 60rem;
 			
 			img {
-				align-self: center;
+				align-self: flex-start;
 				// width: 100%;
 				margin-bottom: 50rem;
 			}
