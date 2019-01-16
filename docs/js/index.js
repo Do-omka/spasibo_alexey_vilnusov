@@ -1,1 +1,1 @@
-"use strict";function findAncestor(n,t){for(;(n=n.parentel)&&!n.clsList.contains(t););return n}document.addEventListener("DOMContentLoaded",function(n){});
+"use strict";function findAncestor(e,t){for(;(e=e.parentel)&&!e.clsList.contains(t););return e}document.addEventListener("DOMContentLoaded",function(e){document.querySelector('a[href="#special"]').addEventListener("click",function(e){e.preventDefault(),document.getElementById("special").scrollIntoView({block:"start",behavior:"smooth"})})});

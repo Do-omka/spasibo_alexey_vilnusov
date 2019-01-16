@@ -193,11 +193,22 @@ blockquote {
 }
 
 .video {
-	background: url(../img/video.png) top right 15px no-repeat ;
+	position: relative;
+	background: url(../img/video.png) top no-repeat ;
 	background-size: contain;
-	width: 519px;
-	height: 341px;
+	width: 100%;
+	padding-bottom: 65.5%;
+	overflow: hidden;
+
+	> * {
+		position: absolute;
+		top: 6.5%;
+		left: 8.7%;
+		width: 84%;
+		height: 81%;
+	}
 }
+
 
 
 .btn {
@@ -330,7 +341,7 @@ section.edu {
 				max-width: 95px;
 				max-height: 89px;
 			}
-
+			
 			&:hover {
 				transform: scale(1.2);
 			}
@@ -491,7 +502,7 @@ section.features {
 			align-self: center;
 			margin-bottom: 30rem;
 		}
-
+		
 		&:hover {
 			box-shadow: 4px 5px 9px 8px rgba(0, 0, 0, 0.18);
 			transform: scale(1.05);
@@ -565,7 +576,7 @@ section.pricelist {
 		box-shadow: 15px 16px 26px 3px rgba(0, 0, 0, 0.28);
 		background-color: #ffffff;
 		margin-bottom: 50rem;
-
+		
 		&:hover {
 			box-shadow: 15px 16px 26px 30px rgba(0, 0, 0, 0.28);
 			transform: scale(1.05);
@@ -704,7 +715,7 @@ section.teachers {
 			}
 		}
 	}
-
+	
 	#j:checked {
 		~ .radio .j {
 			background-color: #0000ff;
