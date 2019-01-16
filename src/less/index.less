@@ -277,7 +277,7 @@ section.top {
 	background-color: @bg;
 	background-image: url(../img/top.png);
 	background-size: cover;
-
+	
 	h2 {
 		margin-bottom: 1em;
 	}
@@ -322,6 +322,13 @@ section.edu {
 			@media @sm {
 				max-width: 95px;
 				max-height: 89px;
+			}
+		}
+		
+		[type='radio']:checked {
+			~ .description {
+				background-color: #0068e3;
+				color: white;
 			}
 		}
 		
@@ -704,5 +711,16 @@ section.teachers {
 		@media @xl {
 			columns: 1;
 		}
+	}
+}
+
+.radio {
+	width: 12px;
+	height: 12px;
+	border: 2px solid #0000ff;
+	border-radius: 50%;
+
+	&-checked {
+		background-color: #0000ff;
 	}
 }
