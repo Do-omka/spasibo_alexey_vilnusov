@@ -533,16 +533,46 @@ section.pricelist {
 			font-size: 50rem;
 			font-weight: 700;
 			text-transform: uppercase;
+			margin-bottom: 35rem;
 		}
 	
 		li {
+			display: inline-flex;
+			flex-direction: row;
 			margin-bottom: 35rem;
+			align-items: baseline;
+			justify-content: space-between;
+			position: relative;
+			
+			&::before {
+				content: '';
+				width: 18px;
+				height: 18px;
+				order: 1;
+				flex-shrink: 0;
+				align-self: flex-end;
+				background: url('../img/check.png') center center no-repeat;
+				// background-color: #fff;
+			}
+			
+			&::after {
+				// position: absolute;
+				// bottom: 0;
+				content: '';
+				display: inline;
+				// width: 100%;
+				flex-grow: 1;
+				flex-shrink: 1;
+				margin: 0 .2em;
+				border-bottom: 2px dotted black;
+			}
 		}
 		
 		.room {
 			color: @blue;
 			font-weight: 700;
 			text-transform: uppercase;
+			margin-bottom: 35rem;
 		}
 	}
 }
