@@ -43,6 +43,7 @@
 	display: flex;
 	flex: none;
 	flex-direction: column;
+	transition: .2s ease all;
 }
 
 ::before,
@@ -319,9 +320,14 @@ section.edu {
 		img {
 			width: 190rem;
 			height: 178rem;
+			
 			@media @sm {
 				max-width: 95px;
 				max-height: 89px;
+			}
+
+			&:hover {
+				transform: scale(1.2);
 			}
 		}
 		
@@ -480,6 +486,12 @@ section.features {
 			align-self: center;
 			margin-bottom: 30rem;
 		}
+
+		&:hover {
+			box-shadow: 4px 5px 9px 8px rgba(0, 0, 0, 0.18);
+			transform: scale(1.05);
+			z-index: 1;
+		}
 	}
 }
 
@@ -548,6 +560,12 @@ section.pricelist {
 		box-shadow: 15px 16px 26px 3px rgba(0, 0, 0, 0.28);
 		background-color: #ffffff;
 		margin-bottom: 50rem;
+
+		&:hover {
+			box-shadow: 15px 16px 26px 30px rgba(0, 0, 0, 0.28);
+			transform: scale(1.05);
+			z-index: 1;
+		}
 		
 		del {
 			color: #cdcdd1;
