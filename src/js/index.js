@@ -5,4 +5,11 @@ function findAncestor (el, cls) {
 
 document.addEventListener('DOMContentLoaded', (e)=> {
 	
+	document.querySelector('a[href="#special"]').addEventListener('click',(e)=> {
+		e.preventDefault()
+		document.getElementById('special').scrollIntoView({
+      block: 'start',
+      behavior: 'smooth'
+    })
+	})
 })
