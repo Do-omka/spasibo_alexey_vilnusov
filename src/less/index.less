@@ -326,6 +326,19 @@ h4 {
 	text-transform: uppercase;
 }
 
+ul.dash {
+	margin-bottom: 60rem;
+	
+	li {
+		display: inline-block;
+		margin-bottom: 1em;
+		
+		&::before {
+			content: '— ';
+		}
+	}
+}
+
 section.why {
 	padding-top: 85rem;
 	position: relative;
@@ -393,19 +406,6 @@ section.why {
 section.for {
 	padding-top: 80rem;
 	padding-bottom: 95rem;
-	
-	ul {
-		margin-bottom: 60rem;
-		
-		li {
-			display: inline-block;
-			margin-bottom: 1em;
-			
-			&::before {
-				content: '— ';
-			}
-		}
-	}
 }
 
 .btn-2 {
@@ -626,4 +626,9 @@ section.pricelist {
 
 section.teachers {
 	margin-bottom: 65rem;
+	
+	ul.dash {
+		display: inline-block;
+		columns: 2;
+	}
 }
