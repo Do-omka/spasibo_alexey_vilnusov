@@ -20,6 +20,7 @@
 @md: ~'(max-width: 768px)';
 @sm: ~'(max-width: 576px)';
 
+@blue: #0068e3;
 @bg: #13599f;
 
 @media @xl {
@@ -91,8 +92,7 @@ main {
 	flex-direction: row;
 }
 
-body {
-	height: 100%;
+.default {
 	font-family: "Nissan Brand";
 	font-size: 22rem;
 	font-weight: 400;
@@ -100,22 +100,29 @@ body {
 	color: #343e46;
 }
 
+body {
+	height: 100%;
+	.default;
+}
+
 h2 {
+	text-align: center;
 	font-family: "Nissan Brand";
 	font-size: 34rem;
 	font-weight: 700;
 	text-transform: uppercase;
-	margin-bottom: 40rem;
+	margin-bottom: 2em;
 	// align-self: center;
 }
 
 h3 {
+	text-align: center;
 	color: #343e46;
 	font-family: "Nissan Brand";
 	font-size: 29rem;
 	font-weight: 700;
 	text-transform: uppercase;
-	margin-bottom: 35rem;
+	margin-bottom: 1em;
 	// align-self: center;
 }
 
@@ -137,10 +144,10 @@ b {
 	text-decoration: underline;
 }
 
-[class^='col-'] {
+[class*='col-'] {
 	margin-bottom: 2em;
-
-	h2, h3 {
+	
+	>h2, >h3 {
 		text-align: left;
 	}
 }
@@ -173,13 +180,13 @@ blockquote {
 	}
 }
 
-// ol {
-// 	counter-reset: i;
-// 	li::before {
-// 		counter-increment: i;
-// 		content: '0' counter(i);
-// 	}
-// }
+.ol {
+	counter-reset: i;
+	li::before {
+		counter-increment: i;
+		// content: counter(i);
+	}
+}
 
 .video {
 	background: url(../img/video.png) top right 15px no-repeat ;
@@ -248,7 +255,7 @@ body > header {
 	
 	.cell {
 		.number {
-			color: #0068e3;
+			color: @blue;
 			font-size: 30px;
 			font-weight: 700;
 		}
@@ -272,10 +279,6 @@ section.top {
 		line-height: 1.5em;
 	}
 	
-	// h2 {
-	// 	align-self: flex-start;
-	// }
-	
 	.link {
 		margin-bottom: 50rem;
 	}
@@ -283,11 +286,7 @@ section.top {
 
 section.edu {
 	padding-top: 90rem;
-	
-	h2 {
-		align-self: center;
-	}
-	
+
 	li {
 		margin-bottom: .5em;
 	}
@@ -422,49 +421,6 @@ section.for {
 	}
 }
 
-section.pricelist {
-	height: 420rem;
-	color: white;
-	background-color: #0068e3;
-	// padding-bottom: 100rem;
-	
-	.package {
-		padding: 30rem;
-		padding-bottom: 50rem;
-		// align-items: center;
-		text-align: center;
-		color: #434350;
-		box-shadow: 15px 16px 26px 3px rgba(0, 0, 0, 0.28);
-		background-color: #ffffff;
-		margin-bottom: 50rem;
-		
-		del {
-			color: #cdcdd1;
-			font-size: 44rem;
-			font-weight: 700;
-			text-decoration: line-through;
-			text-transform: uppercase;
-		}
-		
-		.price {
-			color: #0068e3;
-			font-size: 50rem;
-			font-weight: 700;
-			text-transform: uppercase;
-		}
-		
-		li {
-			margin-bottom: 35rem;
-		}
-		
-		.room {
-			color: #0068e3;
-			font-weight: 700;
-			text-transform: uppercase;
-		}
-	}
-}
-
 section.features {
 	padding-top: 100rem;
 	padding-bottom: 120rem;
@@ -480,7 +436,7 @@ section.features {
 	}
 	
 	li {
-		color: #0068e3;
+		color: @blue;
 		margin-bottom: 15rem;
 		
 		&:last-child .item {
@@ -510,13 +466,83 @@ section.features {
 }
 
 section.topics {
+	padding-top: 70rem;
+	padding-bottom: 100rem;
 	
-	// h2 {
-	// 	color: #0068e3;
-	// 	font-family: "Nissan Brand";
-	// 	font-size: 29px;
-	// 	font-weight: 700;
-	// 	line-height: 35px;
-	// 	text-transform: uppercase;
-	// }
+	ol.topics {
+		// .ol;
+		> li {
+			margin-bottom: 70rem;
+			font-size: 26rem;
+			
+			ol {
+				.default;
+				.ol;
+
+				> li {
+					flex-direction: row;
+					
+					&::before {
+						// content: counter(i) '.\00a0';
+						content: counter(i) '.';
+						padding-right: 10px;
+					}
+				}
+			}
+		}
+	}
+	
+	h2 {
+		color: @blue;
+		text-align: left;
+		margin-bottom: 1em;
+	}
+	
+	.link {
+		color: @blue;
+	}
+}
+
+section.pricelist {
+	padding-top: 65rem;
+	height: 420rem;
+	color: white;
+	background-color: @blue;
+	// padding-bottom: 100rem;
+	
+	.package {
+		padding: 30rem;
+		padding-bottom: 50rem;
+		// align-items: center;
+		text-align: center;
+		color: #434350;
+		box-shadow: 15px 16px 26px 3px rgba(0, 0, 0, 0.28);
+		background-color: #ffffff;
+		margin-bottom: 50rem;
+		
+		del {
+			color: #cdcdd1;
+			font-size: 44rem;
+			font-weight: 700;
+			text-decoration: line-through;
+			text-transform: uppercase;
+		}
+		
+		.price {
+			color: @blue;
+			font-size: 50rem;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+		
+		li {
+			margin-bottom: 35rem;
+		}
+		
+		.room {
+			color: @blue;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+	}
 }
