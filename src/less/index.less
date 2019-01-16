@@ -284,7 +284,7 @@ section.top {
 
 section.edu {
 	padding-top: 90rem;
-
+	
 	li {
 		margin-bottom: .5em;
 	}
@@ -476,7 +476,7 @@ section.topics {
 			ol {
 				.default;
 				.ol;
-
+				
 				> li {
 					flex-direction: row;
 					
@@ -533,35 +533,69 @@ section.pricelist {
 			text-transform: uppercase;
 			margin-bottom: 35rem;
 		}
-	
-		li {
-			display: inline-flex;
-			flex-direction: row;
-			margin-bottom: 35rem;
-			align-items: baseline;
-			justify-content: space-between;
-			position: relative;
+		
+		ul {
+			// display: block;
+			background-color: inherit;
+			text-align: left;
 			
-			&::before {
-				content: '';
-				width: 18px;
-				height: 18px;
-				order: 1;
-				flex-shrink: 0;
-				align-self: flex-end;
-				background: url('../img/check.png') center center no-repeat;
-				// background-color: #fff;
+			*,
+			::before,
+			::after {
+				background-color: inherit;
+			}
+		}
+		
+		li {
+			display: inline-block;
+			// background: inherit;
+			// display: flex;
+			// flex-direction: row;
+			margin-bottom: 35rem;
+			// justify-content: space-between;
+			position: relative;
+			// width: 100%;
+			// vertical-align: baseline;
+			padding-right: 20px;
+			
+			span {
+				// background: inherit;
+				display: inline;
+				position: relative;
+				// display: flex;
+				// flex-direction: row;
+				// justify-content: space-between;
+				padding-right: 4px;
+				// margin-right: 16px;
+				// z-index: 1;
 			}
 			
 			&::after {
-				// position: absolute;
-				// bottom: 0;
+				content: '';
+				position: absolute;
+				right: 0;
+				// height: 1em;
+				width: 20px;
+				height: 20px;
+				bottom: 6px;
+				// order: 1;
+				// flex-shrink: 0;
+				// align-self: flex-end;
+				background: url('../img/check.png') center center no-repeat;
+				background-color: inherit;
+				// z-index: 1;
+			}
+			
+			&::before {
+				position: absolute;
+				bottom: 6px;
+				// left: 5px;
+				// right: 5px;
 				content: '';
 				display: inline;
-				// width: 100%;
-				flex-grow: 1;
-				flex-shrink: 1;
-				margin: 0 .2em;
+				width: 100%;
+				height: 1em;
+				// margin: 0 .2em;
 				border-bottom: 2px dotted black;
 			}
 		}
@@ -572,7 +606,7 @@ section.pricelist {
 			text-transform: uppercase;
 			margin-bottom: 35rem;
 		}
-
+		
 		.btn {
 			align-self: center;
 		}
