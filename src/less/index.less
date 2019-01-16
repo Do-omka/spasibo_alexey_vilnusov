@@ -55,6 +55,11 @@ script {
 	display: none;
 }
 
+img {
+	max-width: 100%;
+	height: auto;
+}
+
 html {
 	height: 100%;
 	font-size: 1px;
@@ -627,8 +632,61 @@ section.pricelist {
 section.teachers {
 	margin-bottom: 65rem;
 	
+	h2 {
+		text-transform: none;
+	}
+	
+	.bio {
+		position: relative;
+		margin-bottom: 30rem;
+		
+		figure {
+			margin-bottom: 60rem;
+			
+			img {
+				align-self: center;
+				margin-bottom: 50rem;
+			}
+			
+			@media @xl {
+				order: -1;
+			}
+		}
+		
+		&::before {
+			content: '';
+			position: absolute;
+			width: 115%;
+			height: 100%;
+			left: 50%;
+			transform: translate(-50%);
+			background: url(../img/map.png) top center no-repeat;
+			background-size: contain;
+
+			@media @xl {
+				width: 100%;
+			}
+		}
+	}
+	
+	.b {
+		margin-bottom: 30rem;
+	}
+	
+	blockquote {
+		&::before {
+			display: none;
+		}
+		&::after {
+			align-self: flex-start;
+		}
+	}
 	ul.dash {
 		display: inline-block;
 		columns: 2;
+		
+		@media @xl {
+			columns: 1;
+		}
 	}
 }
