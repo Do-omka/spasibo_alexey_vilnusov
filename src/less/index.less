@@ -15,6 +15,11 @@
 	src: url('../fonts/NissanBrand-Bold.ttf') format('truetype');
 }
 
+@font-face {
+	font-family: 'Nissan Brand - Light';
+	src: url('../fonts/NissanBrand-Light.ttf') format('truetype');
+}
+
 @xl: ~'(max-width: 1200px)';
 @lg: ~'(max-width: 992px)';
 @md: ~'(max-width: 768px)';
@@ -140,7 +145,19 @@ p {
 b {
 	font-family: "Nissan Brand - Bold";
 	font-weight: 700;
+}
+
+b,
+i,
+em,
+a {
 	display: inline;
+}
+
+i, em {
+	font-style: italic;
+	font-family: 'Nissan Brand - Light';
+	margin-bottom: 1.25em;
 }
 
 .link {
@@ -368,7 +385,7 @@ section.edu {
 			// height: 0;
 			background: url(../img/edu-left.png) left bottom no-repeat;
 			// z-index: -1;
-
+			
 			@media @md {
 				padding: 0;
 				width: 100%;
@@ -475,8 +492,6 @@ section.why {
 		text-transform: uppercase;
 		margin-top: 80rem;
 		// overflow: hidden;
-		
-		div:last-of-type
 		
 		.preload:nth-child(1) {
 			opacity: 0;
@@ -879,5 +894,133 @@ section.teachers {
 		height: 12px;
 		border: 2px solid #0000ff;
 		border-radius: 50%;
+	}
+}
+
+
+
+.popup {
+	display: flex;
+	z-index: -1;
+	opacity: 0;
+	
+	&.active {
+		opacity: 1;
+		z-index: 3;
+	}
+	
+	justify-content: center;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top:0;
+	background-color: rgba(0, 0, 0, 0.2);
+	
+	.form {
+		border-radius: 5px;
+		box-shadow: 15px 16px 26px 3px rgba(0, 0, 0, 0.28);
+
+		padding-top: 75rem;
+		padding-bottom: 75rem;
+		
+		@media @md {
+			padding-top: 50rem;
+			padding-bottom: 50rem;
+		}
+	}
+	
+	.close {
+		position: absolute;
+		right: 30rem;
+		top: 30rem;
+		width: 15px;
+		height: 15px;
+		opacity: .5;
+		cursor: pointer;
+		
+		&:hover {
+			opacity: 1;
+		}
+		
+		&:before,
+		&:after {
+			position: absolute;
+			content: ' ';
+			height: 2px;
+			width: 20px;
+			background-color: #9b9b9b;
+		}
+		&:before {
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) rotate(45deg);
+		}
+		&:after {
+			top: 50%;
+			right: 50%;
+			transform: translate(50%, -50%) rotate(-45deg);
+		}
+	}
+}
+
+.form {
+	flex-basis: auto;
+	position: relative;
+	// align-items: center;
+	align-self: center;
+	background-color: white;
+	margin: 0;
+	
+	form {
+		margin:0;
+	}
+	
+	.btn {
+		align-self: center;
+	}
+	
+	label {
+		margin-bottom: 10px;
+		&:last-of-type {
+			margin-bottom: 30rem;
+		}
+		
+		span {
+			font-size: 14rem;
+			color: rgb(127, 143, 164);
+			margin-bottom: 5px;
+		}
+	}
+	
+	input {
+		padding: 15px;
+		font-size: 16rem;
+		border: 1px solid #dfe3e9;
+		border-radius: 4px;
+		
+		&:hover {
+			border-color: @blue;
+		}
+	}
+
+	.pdpa	{
+		font-style: italic;
+		
+		i {
+			text-decoration: underline;
+		}
+	}
+}
+
+#pdpa {
+	font-size: 20rem;
+	line-height: 1.2em;
+
+	ul {
+		margin-bottom: 1.2em;
+	}
+
+	h2 {
+		margin-bottom: 1.2em;
 	}
 }

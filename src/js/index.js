@@ -1,6 +1,10 @@
+function findAncestor (el, cls) {
+	while ((el = el.parentElement) && !el.classList.contains(cls));
+	return el
+}
+
 function isElementInViewport (el) {
-	
-	let rect = el.getBoundingClientRect();
+	let rect = el.getBoundingClientRect()
 	return !(rect.bottom < 0 || rect.right < 0 || rect.left > window.innerWidth || rect.top > window.innerHeight)
 }
 
@@ -43,12 +47,13 @@ function type(slctr) {
 	}
 }
 
-function findAncestor (el, cls) {
-	while ((el = el.parentel) && !el.clsList.contains(cls));
-	return el
-}
-
 document.addEventListener('DOMContentLoaded', (e)=> {
+
+	
+	document.querySelector('a[href="pdpa.html"]').addEventListener('click',(e)=> {
+		e.preventDefault();
+		document.getElementById('pdpa').classList.add('active')
+	})
 	
 	document.querySelector('a[href="#special"]').addEventListener('click',(e)=> {
 		e.preventDefault();
@@ -57,6 +62,39 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 			behavior: 'smooth'
 		})
 	})
+	
+	
+	// recall popup
+	let recall = document.querySelectorAll('.recall')
+	for (let i = 0; i < recall.length; i++) {
+		recall[i].addEventListener('click', (e)=> {
+			e.preventDefault();
+			document.getElementById('recall_popup').classList.add('active')
+		})
+	}
+	
+	// close buttons
+	let close = document.querySelectorAll('.close')
+	for (let i = 0; i < close.length; i++) {
+		close[i].addEventListener('click', (e)=> {
+			findAncestor(close[i], 'popup').classList.remove('active')
+		})
+	}
+	
+	// close popup on click outside
+	let popup_close = document.querySelectorAll('.popup')
+	for (let i = 0; i < popup_close.length; i++) {
+		popup_close[i].addEventListener('click', (e)=> {
+			popup_close[i].classList.remove('active')
+		})
+	}
+	
+	let popup_form = document.querySelectorAll('.popup .form')
+	for (let i = 0; i < popup_form.length; i++) {
+		popup_form[i].addEventListener('click', (e)=> {
+			e.stopPropagation()
+		})
+	}
 	
 })
 
