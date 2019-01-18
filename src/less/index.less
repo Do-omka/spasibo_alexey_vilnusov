@@ -903,13 +903,13 @@ section.teachers {
 	}
 }
 
-
-
 .popup {
 	position: fixed;
 	top:0;
 	width: 100%;
 	height: 100%;
+	overflow: hidden;
+	
 	justify-content: center;
 	background-color: rgba(0, 0, 0, 0.2);
 	opacity: 0;
@@ -919,23 +919,23 @@ section.teachers {
 		opacity: 1;
 		z-index: 3;
 	}
-	
+
 	.form {
 		border-radius: 5px;
 		box-shadow: 15px 16px 26px 3px rgba(0, 0, 0, 0.28);
-
+		
 		padding-top: 75rem;
 		padding-bottom: 75rem;
 		
-		@media @md {
-			padding-top: 50rem;
-			padding-bottom: 50rem;
-		}
+		// @media @md {
+		// 	padding-top: 50rem;
+		// 	padding-bottom: 50rem;
+		// }
 		
-		@media @sm {
-			padding-top: 25rem;
-			padding-bottom: 25rem;
-		}
+		// @media @sm {
+		// 	padding-top: 25rem;
+		// 	padding-bottom: 25rem;
+		// }
 	}
 	
 	.close {
@@ -1011,7 +1011,7 @@ section.teachers {
 			border-color: @blue;
 		}
 	}
-
+	
 	.pdpa	{
 		font-style: italic;
 		
@@ -1025,10 +1025,15 @@ section.teachers {
 	font-size: 20rem;
 	line-height: 1.2em;
 
+	.form {
+		height: 90vh;
+		overflow-y: scroll;
+	}
+	
 	ul {
 		margin-bottom: 1.2em;
 	}
-
+	
 	h2 {
 		margin-bottom: 1.2em;
 	}
