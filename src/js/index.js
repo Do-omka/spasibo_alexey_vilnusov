@@ -97,11 +97,7 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 			e.stopPropagation()
 		})
 	}
-	
-})
 
-window.addEventListener('load', (e)=> {
-	
 	let handlerType = onVisibilityChange(document.querySelector('.type'), function() {
 		type('.type')
 	})
@@ -124,4 +120,6 @@ window.addEventListener('load', (e)=> {
 	addEventListener('resize', handlerType, false)
 	addEventListener('scroll', handlerFlow, false)
 	addEventListener('resize', handlerFlow, false)
+
+	
 })
