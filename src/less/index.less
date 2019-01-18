@@ -278,19 +278,52 @@ body > header {
 			flex-wrap: wrap;
 			
 			li {
-				&:hover {
-					.blue;
-				}
-				&:not(:last-child) {
-					flex-direction: row;
-					margin-bottom: 20rem;
+				position: relative;
+				display: flex;
+				flex-direction: row;
+				margin-bottom: 20rem;
+				
+				.expand {
+					position: absolute;
+					display: none;
 					
-					&::after {
-						content: '•';
-						color: #4591da;
-						padding-right: 14rem;
-						padding-left: 14rem;
+					flex-direction: column;
+					background-color: #fff;
+					padding: 15px;
+					top: 100%;
+					z-index: 1;
+					white-space: nowrap;
+					
+					li {
+						&::before {
+							content: '•';
+							display: inline;
+							color: #4591da;
+							padding-right: 14rem;
+						}
+						&::after {
+							display: none;
+						}
+						&:last-child {
+							margin-bottom: 0;
+						}
 					}
+				}
+				
+				&:hover {
+					> a {
+						.blue;
+					}
+					
+					.expand {
+						display: flex;
+					}
+				}
+				&:not(:last-child)::after {
+					content: '•';
+					color: #4591da;
+					padding-right: 14rem;
+					padding-left: 14rem;
 				}
 			}
 		}
@@ -887,7 +920,7 @@ section.teachers {
 		@media @xl {
 			columns: 1;
 		}
-
+		
 		li {
 			width: 100%;
 		}
@@ -923,7 +956,7 @@ section.teachers {
 		opacity: 1;
 		z-index: 3;
 	}
-
+	
 	.form {
 		border-radius: 5px;
 		box-shadow: 15px 16px 26px 3px rgba(0, 0, 0, 0.28);
@@ -1027,12 +1060,12 @@ section.teachers {
 
 #pdpa {
 	font-size: 20rem;
-
+	
 	.form {
 		height: 90vh;
 		overflow-y: scroll;
 	}
-
+	
 	.content > * {
 		margin-bottom: 1.25em;
 	}
