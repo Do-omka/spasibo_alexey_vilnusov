@@ -25,7 +25,7 @@
 				</nav>
 				<div class='cell col-xl-auto'>
 					<a href='tel: +74956437555' class='number'>+7 (495) 643-7555</a>
-					<a href='' class='recall'>Заказать обратный звонок</a>
+					<a href='' class='recall' data-src='Обратный звонок в шапке'>Заказать обратный звонок</a>
 				</div>
 			</div>
 		</div>
@@ -47,7 +47,8 @@
 							<b>от 300 000 ₽</b> в месяц
 						</p>
 						<a href='#special' class='link'>Спец. цены до 10 января</a>
-						<a href='' class='recall btn'>Отправить заявку</a>
+						<a href='' class='recall btn' data-src='Заявка на курс в шапке
+'>Отправить заявку</a>
 					</div>
 					<div class='oldynameste col-xl-5'>
 						<img src='img/photo.png' alt='Фото' />
@@ -129,7 +130,7 @@
 							сейчас актуальна и
 							востребована в россии
 						</h2>
-						<a href='' class='recall btn'>Узнать больше</a>
+						<a href='' class='recall btn' data-src='Узнать больше, почему профессия актуальна'>Узнать больше</a>
 					</div>
 					
 					<div class='col-xl-6'>
@@ -157,7 +158,7 @@
 					<li><b>Вам нужна конкретная, пошаговая схема построения карьеры,</b> развития экспертного бизнеса с самого начала и до реальных денег? А также дальнейшее сопровождение, чтобы добиться самых больших высот, реализовать самые большие амбиции, невероятные цели.</li>
 					<li><b>Вам нужен персональный куратор,</b> который всегда будет на связи и вместе <b>с Вами запустит Ваш экспертный бизнес.</b></li>
 				</ul>
-				<a href='' class='recall btn recall btn-2'>Задать вопрос</a>
+				<a href='' class='recall btn recall btn-2' data-src='Задать вопрос'>Задать вопрос</a>
 			</div>
 		</section>
 		
@@ -172,7 +173,7 @@
 							<span style='color: #0068e3;'>On-line обучение.</span>
 							Личный финансовый консультант
 						</h2>
-						<a href='' class='recall btn'>Получить доступ</a>
+						<a href='' class='recall btn' data-src='Получить доступ: on-line обучение'>Получить доступ</a>
 					</div>
 					
 					<div class='block m-xl col-xl-6'>
@@ -386,7 +387,7 @@
 									Доступ в закрытый чат на 6 месяцев
 								</span></li>
 							</ul>
-							<a href='' class='recall btn'>Получить доступ</a>
+							<a href='' class='recall btn' data-src='Получить доступ, пакет «Минимальный»'>Получить доступ</a>
 						</div>
 					</span></li>
 					
@@ -413,7 +414,7 @@
 									3 личные встречи /по 40 минут/ с Ильей Пантелеймоновым
 								</span></li>
 							</ul>
-							<a href='' class='recall btn'>Получить доступ</a>
+							<a href='' class='recall btn' data-src='Получить доступ, пакет «Базовый»'>Получить доступ</a>
 						</div>
 					</span></li>
 					
@@ -443,7 +444,7 @@
 								</span></li>
 							</ul>
 							<span class='room'>всего 5 мест</span>
-							<a href='' class='recall btn'>Получить доступ</a>
+							<a href='' class='recall btn' data-src='Получить доступ, пакет «Наставник»'>Получить доступ</a>
 						</div>
 					</li>
 				</ul>
@@ -559,9 +560,7 @@
 					</div>
 				</div>
 				
-				
-				
-				<a class='recall btn recall btn-2'>Записаться на курс</a>
+				<a href='' class='recall btn recall btn-2' data-src='Записаться на курс в футере'>Записаться на курс</a>
 			</div>
 		</section>
 		
@@ -574,21 +573,23 @@
 					<div class='form col-md-6'>
 						<button type='button' class='close'></button>
 						<div class='row justify-content-center'>
-							<form action='' class='col-md-8'>
+							<form action='send.php' method='post' class='col-md-8'>
 								<label>
 									<span>Имя:</span>
-									<input type='text' />
+									<input type='text' name='name' />
 								</label>
 								<label>
 									<span>Телефон:</span>
-									<input type='tel' value='+7 ' />
+									<input type='tel' name='tel' value='+7 ' />
 								</label>
 								<label>
 									<span>Почта:</span>
-									<input type='email' placeholder='mail@mail.ru' />
+									<input type='email' name='email' placeholder='mail@mail.ru' />
 								</label>
+
+								<input type='hidden' name='src' />
 								<em class='pdpa'>С <a href='pdpa.html' class='link'>соглашением о персональных данных</a> ознакомлен и согласен</em>
-								<button class='btn btn-2'>Заказать звонок</button>
+								<button type='submit' class='btn btn-2'>Отправить заявку</button>
 							</form>
 						</div>
 					</div>

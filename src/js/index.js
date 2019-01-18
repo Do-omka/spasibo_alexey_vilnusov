@@ -69,6 +69,8 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 	for (let i = 0; i < recall.length; i++) {
 		recall[i].addEventListener('click', (e)=> {
 			e.preventDefault();
+			document.getElementById('recall_popup').querySelector('[name="src"]').value = recall[i].dataset.src;
+			document.getElementById('recall_popup').querySelector('button[type="submit"]').innerHTML = recall[i].innerHTML;
 			document.getElementById('recall_popup').classList.add('active')
 		})
 	}
