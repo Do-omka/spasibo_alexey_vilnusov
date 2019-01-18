@@ -277,15 +277,20 @@ body > header {
 			font-weight: 400;
 			flex-wrap: wrap;
 			
-			li:not(:last-child) {
-				flex-direction: row;
-				margin-bottom: 20rem;
-				
-				&::after {
-					content: '•';
-					color: #4591da;
-					padding-right: 14rem;
-					padding-left: 14rem;
+			li {
+				&:hover {
+					.blue;
+				}
+				&:not(:last-child) {
+					flex-direction: row;
+					margin-bottom: 20rem;
+					
+					&::after {
+						content: '•';
+						color: #4591da;
+						padding-right: 14rem;
+						padding-left: 14rem;
+					}
 				}
 			}
 		}
@@ -986,7 +991,7 @@ section.teachers {
 		}
 		
 		span {
-			font-size: 14rem;
+			// font-size: 14rem;
 			color: rgb(127, 143, 164);
 			margin-bottom: 5px;
 		}
