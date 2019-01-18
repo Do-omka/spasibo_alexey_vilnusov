@@ -906,21 +906,19 @@ section.teachers {
 
 
 .popup {
-	display: flex;
-	z-index: -1;
+	position: fixed;
+	top:0;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	background-color: rgba(0, 0, 0, 0.2);
 	opacity: 0;
+	z-index: -1;
 	
 	&.active {
 		opacity: 1;
 		z-index: 3;
 	}
-	
-	justify-content: center;
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	top:0;
-	background-color: rgba(0, 0, 0, 0.2);
 	
 	.form {
 		border-radius: 5px;
@@ -932,6 +930,11 @@ section.teachers {
 		@media @md {
 			padding-top: 50rem;
 			padding-bottom: 50rem;
+		}
+		
+		@media @sm {
+			padding-top: 25rem;
+			padding-bottom: 25rem;
 		}
 	}
 	
