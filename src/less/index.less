@@ -187,12 +187,35 @@ blockquote {
 		height: 40rem;
 		margin-bottom: 40rem;
 	}
-	&::after {
+
+	&.j::after {
+		content: '';
+		align-self: flex-end;
+		background: url(../img/sign-joseph.png) center center no-repeat;
+		background-size: contain;
+		width: 186rem;
+		height: 117rem;
+		margin-top: 30rem;
+		margin-bottom: 70rem;
+	}
+	
+	&.i::after {
 		content: '';
 		align-self: flex-end;
 		background: url(../img/sign.png) center center no-repeat;
 		background-size: contain;
 		width: 186rem;
+		height: 117rem;
+		margin-top: 30rem;
+		margin-bottom: 70rem;
+	}
+
+	&.ji::after {
+		content: '';
+		align-self: flex-end;
+		background: url(../img/sign-joseph.png) left center no-repeat, url(../img/sign.png) right center no-repeat;
+		background-size: 50%, 50%;
+		width: 372rem;
 		height: 117rem;
 		margin-top: 30rem;
 		margin-bottom: 70rem;
@@ -904,6 +927,7 @@ section.teachers {
 			align-self: flex-start;
 		}
 	}
+	
 	ul.dash {
 		display: inline-block;
 		columns: 2;
