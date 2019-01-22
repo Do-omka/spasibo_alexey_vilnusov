@@ -376,6 +376,10 @@ section.top {
 	background-color: @bg;
 	background-image: url(../img/top.png);
 	background-size: cover;
+
+	[class*='col-'] {
+		margin-bottom: 0;
+	}
 	
 	h2 {
 		margin-bottom: 1em;
@@ -400,7 +404,8 @@ section.top {
 		align-items: flex-end;
 		
 		img {
-			width: 100%;
+			// max-width: 100%;
+			// max-height: 608px;
 		}
 		
 		@media @xl {
