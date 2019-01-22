@@ -187,7 +187,7 @@ blockquote {
 		height: 40rem;
 		margin-bottom: 40rem;
 	}
-
+	
 	&.j::after {
 		content: '';
 		align-self: flex-end;
@@ -209,7 +209,7 @@ blockquote {
 		margin-top: 30rem;
 		margin-bottom: 70rem;
 	}
-
+	
 	&.ji::after {
 		content: '';
 		align-self: flex-end;
@@ -247,8 +247,6 @@ blockquote {
 	}
 }
 
-
-
 .btn {
 	max-width: 390rem;
 	width: 100%;
@@ -270,6 +268,10 @@ blockquote {
 	}
 }
 
+.blue {
+	color: @blue;
+}
+
 .m-xl {
 	@media @xl {
 		display: none;
@@ -288,9 +290,6 @@ body > header {
 	}
 	
 	nav {
-		.blue {
-			color: @blue;
-		}
 		
 		ul {
 			flex-direction: row;
@@ -376,7 +375,7 @@ section.top {
 	background-color: @bg;
 	background-image: url(../img/top.png);
 	background-size: cover;
-
+	
 	[class*='col-'] {
 		margin-bottom: 0;
 	}
@@ -880,7 +879,7 @@ section.teachers {
 				transform: none;
 			}
 		}
-
+		
 		~ .col .recall {
 			margin-top: -200px;
 		}
@@ -1089,5 +1088,89 @@ section.teachers {
 	
 	.content > * {
 		margin-bottom: 1.25em;
+	}
+}
+
+section.plan {
+	.block {
+		padding: 30rem 75rem 50rem;
+		font-family: "Nissan Brand";
+		font-size: 14rem;
+		box-shadow: 29px 19px 27px rgba(2, 2, 2, 0.08);
+		background-color: #ffffff;
+		margin-top: -50px;
+		margin-bottom: 85rem;
+		z-index: 1;
+
+		@media @xl {
+			margin-top: 0;
+		}
+		
+		.btn {
+			box-shadow: 9px 14px 16px rgba(2, 2, 2, 0.29);
+			margin-top: 20rem;
+			margin-bottom: 45rem;
+		}
+		
+		b {
+			font-family: "Nissan Brand";
+			font-size: 30rem;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+	}
+	
+	ol {
+		counter-reset: i;
+		justify-content: space-between;
+		padding: 0 65rem;
+		font-size: 35rem;
+		font-weight: 700;
+		line-height: 40px;
+		
+		li {
+			// display: inline-block;
+			padding-top: 40rem;
+
+			.link {
+				display: block;
+				font-size: 16rem;
+				text-transform: uppercase;
+				opacity: 0.5;
+				text-decoration: underline;
+			}
+			
+			b {
+				// display: inline;
+				position: relative;
+				text-decoration: underline;
+				margin-bottom: 42rem;
+				flex-wrap: wrap;
+			
+				&::before {
+					display: block;
+					counter-increment: i;
+					content: '0' counter(i);
+					position: absolute;
+					top: -40rem;
+					right: 0;
+					// opacity: 0.55;
+					color: #eeeded;
+					font-family: "Nissan Brand";
+					font-size: 120rem;
+					font-weight: 700;
+					z-index: -1;
+				}
+			}
+			
+			&:hover {
+				b {
+					color: @blue;
+				}
+				.link {
+					opacity: 1;
+				}
+			}
+		}
 	}
 }
