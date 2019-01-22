@@ -1146,15 +1146,23 @@ section.plan {
 				text-transform: uppercase;
 				opacity: 0.5;
 				text-decoration: underline;
+
+				&:hover {
+					opacity: 1;
+				}
 			}
 			
-			b {
+			.b {
 				// display: inline;
 				position: relative;
 				text-decoration: underline;
 				margin-bottom: 42rem;
 				flex-wrap: wrap;
-			
+
+				&:hover {
+					color: @blue;
+				}
+				
 				&::before {
 					display: block;
 					counter-increment: i;
@@ -1162,21 +1170,12 @@ section.plan {
 					position: absolute;
 					top: -40rem;
 					right: 0;
-					// opacity: 0.55;
+					opacity: 0.55;
 					color: #eeeded;
 					font-family: "Nissan Brand";
 					font-size: 120rem;
 					font-weight: 700;
 					z-index: -1;
-				}
-			}
-			
-			&:hover {
-				b {
-					color: @blue;
-				}
-				.link {
-					opacity: 1;
 				}
 			}
 		}
