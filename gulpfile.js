@@ -133,7 +133,7 @@ function watch_img() {
 
 // tasks
 
-gulp.task('default', gulp.series(html, css, js, img, gulp.parallel(watch_html, watch_css, watch_js, watch_img)))
+gulp.task('default', gulp.series(html, css, js, gulp.parallel(watch_html, watch_css, watch_js)))
 
-gulp.task('build', gulp.series(min_html, min_css, min_js, min_fonts))
+gulp.task('build', gulp.series(html, css, js, min_html, min_css, min_js))
 gulp.task('assets', gulp.parallel(min_img, min_fonts))
