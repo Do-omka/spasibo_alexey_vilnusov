@@ -28,6 +28,8 @@
 @blue: #0068e3;
 @bg: #13599f;
 
+@grey: #434350;
+
 @media @xl {
 	// max-width: 1200px
 }
@@ -376,6 +378,15 @@ section.top {
 	background-image: url(../img/top.png);
 	background-size: cover;
 	
+	&.grey {
+		background-color: @grey;
+		background-image: url(../img/top-grey.png);
+		
+		.block {
+			padding-left: 80rem;
+		}
+	}
+	
 	[class*='col-'] {
 		margin-bottom: 0;
 	}
@@ -409,6 +420,23 @@ section.top {
 		
 		@media @xl {
 			display: none;
+		}
+	}
+	
+	form {
+		input {
+			max-width: 380rem;
+			padding: 20rem;
+			border-bottom: 1px solid white;
+			margin-bottom: 25rem;
+			letter-spacing: 3px;
+			
+			&::placeholder {
+				all: unset;
+				color: white;
+				font-family: "Nissan Brand";
+				font-size: 19rem;
+			}
 		}
 	}
 }
@@ -536,10 +564,10 @@ section.why {
 	background-color: @bg;
 	color: white;
 	overflow: hidden;
-
+	
 	&.grey {
-		background-color: #434350;
-
+		background-color: @grey;
+		
 		&::before {
 			background-color: #4b4b57;
 		}
@@ -550,8 +578,8 @@ section.why {
 		top: -340rem;
 		left: 800rem;
 		content: '';
-		width: 800rem;
-		height: 800rem;
+		width: 832rem;
+		height: 832rem;
 		background-color: #137af4;
 		border-radius: 50%;
 		opacity: 0.35;
@@ -1109,7 +1137,7 @@ section.plan {
 		margin-top: -50px;
 		margin-bottom: 85rem;
 		z-index: 1;
-
+		
 		@media @xl {
 			margin-top: 0;
 		}
@@ -1139,14 +1167,14 @@ section.plan {
 		li {
 			// display: inline-block;
 			padding-top: 40rem;
-
+			
 			.link {
 				display: block;
 				font-size: 16rem;
 				text-transform: uppercase;
 				opacity: 0.5;
 				text-decoration: underline;
-
+				
 				&:hover {
 					opacity: 1;
 				}
@@ -1158,7 +1186,7 @@ section.plan {
 				text-decoration: underline;
 				margin-bottom: 42rem;
 				flex-wrap: wrap;
-
+				
 				&:hover {
 					color: @blue;
 				}
