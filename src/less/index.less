@@ -493,6 +493,10 @@ section.top {
 				font-size: 19rem;
 			}
 		}
+
+		button {
+			margin-bottom: 25rem;
+		}
 	}
 }
 
@@ -920,7 +924,7 @@ section.more {
 			align-self: center;
 			overflow: hidden;
 			margin-bottom: 30rem;
-
+			
 			.text {
 				position: absolute;
 				top: 100%;
@@ -1179,13 +1183,26 @@ section.teachers {
 			border-color: @blue;
 		}
 	}
+}
+
+.pdpa	{
+	position: relative;
+	font-family: "Nissan Brand";
+	font-size: 15px;
+	padding-left: 25px;
+
+	&::before {
+		content: '';
+		display: block;
+		position: absolute;
+		left: 0;
+		width: 17px;
+		height: 17px;
+		background-image: url(../img/agree.png);
+	}
 	
-	.pdpa	{
-		font-style: italic;
-		
-		i {
-			text-decoration: underline;
-		}
+	i {
+		text-decoration: underline;
 	}
 }
 
@@ -1238,7 +1255,7 @@ section.plan {
 		font-size: 35rem;
 		font-weight: 700;
 		line-height: 40px;
-
+		
 		@media @xl {
 			padding: 0 15rem;
 		}
