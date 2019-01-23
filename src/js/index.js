@@ -49,11 +49,14 @@ function type(slctr) {
 
 document.addEventListener('DOMContentLoaded', (e)=> {
 
+	for (let i = 0; i < document.querySelectorAll('a[href="pdpa.html"]').length; i++) {
+		document.querySelectorAll('a[href="pdpa.html"]')[i].addEventListener('click',(e)=> {
+			e.preventDefault();
+			document.getElementById('pdpa').classList.add('active')
+		})
+	}
 	
-	document.querySelector('a[href="pdpa.html"]').addEventListener('click',(e)=> {
-		e.preventDefault();
-		document.getElementById('pdpa').classList.add('active')
-	})
+	
 	
 	if (document.querySelector('a[href="#special"]')) {
 		document.querySelector('a[href="#special"]').addEventListener('click',(e)=> {
