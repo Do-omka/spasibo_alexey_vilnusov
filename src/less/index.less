@@ -418,10 +418,7 @@ section.top {
 	}
 	
 	input::placeholder {
-		all: unset;
 		color: white;
-		font-family: "Nissan Brand";
-		font-size: 19rem;
 	}
 }
 
@@ -1214,17 +1211,54 @@ section.plan {
 
 section.contacts {
 	padding-top: 85rem;
-
-	.block, {
+	
+	.block {
 		margin-bottom: 0;
+	}
+
+	form {
+		margin-bottom: 66rem;
 	}
 }
 
-.socials a {
-	width: 55rem;
-	height: 55rem;
-	background-color: @bg;
-	border-radius: 10rem;
+.socials {
+	flex-direction: row;
+	// justify-content: space-between;
+	
+	li {
+		width: 55rem;
+		height: 55rem;
+		padding: 10rem;
+		border-radius: 10rem;
+		background-color: @bg;
+		margin-right: 15rem;
+		margin-bottom: 30rem;
+	}
+	
+	.icon {
+		width: 100%;
+		height: 100%;
+		background: center center no-repeat;
+		
+		&.skype {
+			background-image: svg-load('../img/i-skype.svg');
+		}
+		&.mailru {
+			background-image: svg-load('../img/i-mailru.svg');
+		}
+		&.youtube {
+			background-image: svg-load('../img/i-youtube.svg');
+		}
+		&.vk {
+			background-image: svg-load('../img/i-vk.svg');
+		}
+		&.fb {
+			background-image: svg-load('../img/i-fb.svg');
+		}
+		&.instagram {
+			background-image: svg-load('../img/i-instagram.svg');
+		}
+	}
 }
 
 body > footer {
