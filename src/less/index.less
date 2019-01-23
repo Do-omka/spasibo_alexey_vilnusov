@@ -289,6 +289,20 @@ blockquote {
 	}
 }
 
+ul.disc {
+	li {
+		flex-direction: row;
+		
+		&::before {
+			all: unset;
+			text-decoration: none;
+			content: '•';
+			color: #4591da;
+			padding-right: 14rem;
+		}
+	}
+}
+
 body > header {
 	padding-top: 50rem;
 	
@@ -327,12 +341,6 @@ body > header {
 					white-space: nowrap;
 					
 					li {
-						&::before {
-							content: '•';
-							display: inline;
-							color: #4591da;
-							padding-right: 14rem;
-						}
 						&::after {
 							display: none;
 						}
@@ -351,6 +359,7 @@ body > header {
 						display: flex;
 					}
 				}
+				
 				&:not(:last-child)::after {
 					content: '•';
 					color: #4591da;
@@ -1282,7 +1291,12 @@ body > footer {
 		h3 {
 			font-size: 21rem;
 		}
-		ul {
+
+		ul li::before {
+			color: currentColor;
+		}
+		
+		a {
 			text-decoration: underline;
 		}
 	}
