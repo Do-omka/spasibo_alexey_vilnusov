@@ -55,13 +55,16 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 		document.getElementById('pdpa').classList.add('active')
 	})
 	
-	document.querySelector('a[href="#special"]').addEventListener('click',(e)=> {
-		e.preventDefault();
-		document.getElementById('special').scrollIntoView({
-			block: 'start',
-			behavior: 'smooth'
+	if (document.querySelector('a[href="#special"]')) {
+		document.querySelector('a[href="#special"]').addEventListener('click',(e)=> {
+			e.preventDefault();
+			document.getElementById('special').scrollIntoView({
+				block: 'start',
+				behavior: 'smooth'
+			})
 		})
-	})
+	}
+	
 	
 	
 	// recall popup
