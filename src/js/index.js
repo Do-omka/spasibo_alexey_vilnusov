@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 		})
 	}
 
-	let handlerType = onVisibilityChange(document.querySelector('.type'), function() {
+	let handlerType = onVisibilityChange(document.querySelector('.totype'), function() {
 		type('.type')
 	})
 	
