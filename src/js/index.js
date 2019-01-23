@@ -12,7 +12,7 @@ function onVisibilityChange(el, callback) {
 	let old_visible = false
 	return function () {
 		let visible = isElementInViewport(el)
-		if (visible != old_visible) {
+		if (visible != old_visible || visible) {
 			old_visible = visible
 			if (typeof callback == 'function') {
 				callback()
@@ -39,10 +39,10 @@ function type(slctr) {
 							let texts = document.createTextNode(textCont[j][i])
 							text[j].appendChild(texts)
 							text[j].classList.remove('type')
-						}, 20 * i)
+						}, 10 * i)
 					}(i))
 				}
-			},	20 * j)
+			},	10 * j)
 		}(j))
 	}
 }
@@ -116,10 +116,11 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 		
 	})
 	
+	addEventListener('DOMContentLoaded', handlerType, false)
 	addEventListener('scroll', handlerType, false)
 	addEventListener('resize', handlerType, false)
+	addEventListener('DOMContentLoaded', handlerFlow, false)
 	addEventListener('scroll', handlerFlow, false)
 	addEventListener('resize', handlerFlow, false)
-
 	
 })
