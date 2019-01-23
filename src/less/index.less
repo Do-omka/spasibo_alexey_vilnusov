@@ -103,6 +103,7 @@ main {
 
 .row {
 	flex-direction: row;
+	justify-content: space-between;
 }
 
 .default {
@@ -137,6 +138,40 @@ h3 {
 	text-transform: uppercase;
 	margin-bottom: 1em;
 	// align-self: center;
+}
+
+
+h4 {
+	font-family: "Nissan Brand";
+	font-size: 21rem;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+ul.dash {
+	margin-bottom: 60rem;
+	
+	li {
+		display: inline-block;
+		margin-bottom: 1em;
+		
+		&::before {
+			content: '— ';
+		}
+	}
+}
+
+ul.split {
+	display: inline-block;
+	columns: 2;
+	
+	@media @xl {
+		columns: 1;
+	}
+	
+	li {
+		width: 100%;
+	}
 }
 
 p {
@@ -239,6 +274,7 @@ blockquote {
 	width: 100%;
 	padding-bottom: 65.5%;
 	overflow: hidden;
+	filter: drop-shadow(-50px 150px 50px rgba(0,0,0,.2));
 	
 	> * {
 		position: absolute;
@@ -267,6 +303,17 @@ blockquote {
 	
 	&:hover {
 		background-image: linear-gradient(to top, #f00030, #b10028);
+	}
+}
+
+.btn-2 {
+	// .btn;
+	background-image: linear-gradient(to top, rgba(#0867d7, 1), rgba(#0575fa, 1));
+	align-self: center;
+	
+	&:hover {
+		background-image: linear-gradient(to top, rgba(#0575fa, 1), rgba(#0867d7, 1));
+		
 	}
 }
 
@@ -449,6 +496,17 @@ section.top {
 	}
 }
 
+section.inDigits {
+	padding-top: 90rem;
+	padding-bottom: 50rem;
+	
+	b {
+		color: @blue;
+		font-size: 50rem;
+		margin-bottom: 30rem;
+	}
+}
+
 section.edu {
 	padding-top: 90rem;
 	
@@ -546,26 +604,6 @@ section.edu {
 	}
 }
 
-h4 {
-	font-family: "Nissan Brand";
-	font-size: 21rem;
-	font-weight: 700;
-	text-transform: uppercase;
-}
-
-ul.dash {
-	margin-bottom: 60rem;
-	
-	li {
-		display: inline-block;
-		margin-bottom: 1em;
-		
-		&::before {
-			content: '— ';
-		}
-	}
-}
-
 section.why {
 	padding-top: 85rem;
 	position: relative;
@@ -659,17 +697,6 @@ section.for {
 	padding-bottom: 95rem;
 }
 
-.btn-2 {
-	// .btn;
-	background-image: linear-gradient(to top, rgba(#0867d7, 1), rgba(#0575fa, 1));
-	align-self: center;
-	
-	&:hover {
-		background-image: linear-gradient(to top, rgba(#0575fa, 1), rgba(#0867d7, 1));
-		
-	}
-}
-
 section.features {
 	padding-top: 100rem;
 	padding-bottom: 120rem;
@@ -677,11 +704,6 @@ section.features {
 	
 	.block {
 		margin-bottom: 150rem;
-	}
-	
-	.video {
-		// box-shadow: 0 100px 150px -50px black;
-		filter: drop-shadow(-50px 150px 50px rgba(0,0,0,.2));
 	}
 	
 	li {
@@ -889,6 +911,19 @@ section.teachers {
 		}
 	}
 	
+	.b-video {
+		align-self: center;
+		align-items: flex-end;
+
+		.video {
+			margin-bottom: 35rem;
+		}
+
+		.link {
+			margin-right: 35rem;
+		}
+	}
+	
 	.slider-wrapper {
 		width: 100%;
 		overflow: hidden;
@@ -947,6 +982,10 @@ section.teachers {
 			}
 		}
 		
+		.btn {
+			align-self: flex-start;
+		}
+		
 		&::before {
 			content: '';
 			position: absolute;
@@ -974,19 +1013,6 @@ section.teachers {
 		}
 		&::after {
 			align-self: flex-start;
-		}
-	}
-	
-	ul.dash {
-		display: inline-block;
-		columns: 2;
-		
-		@media @xl {
-			columns: 1;
-		}
-		
-		li {
-			width: 100%;
 		}
 	}
 }
@@ -1166,7 +1192,6 @@ section.plan {
 	
 	ol {
 		counter-reset: i;
-		justify-content: space-between;
 		padding: 0 65rem;
 		font-size: 35rem;
 		font-weight: 700;
@@ -1224,7 +1249,7 @@ section.contacts {
 	.block {
 		margin-bottom: 0;
 	}
-
+	
 	form {
 		margin-bottom: 66rem;
 	}
@@ -1291,7 +1316,7 @@ body > footer {
 		h3 {
 			font-size: 21rem;
 		}
-
+		
 		ul li::before {
 			color: currentColor;
 		}
@@ -1314,7 +1339,6 @@ body > footer {
 	}
 	
 	.copy {
-		justify-content: space-between;
 		color: #dddddd;
 		
 		.madeby {
