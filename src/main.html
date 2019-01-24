@@ -140,7 +140,7 @@
 						</p>
 						<form action='send.php' method='post'>
 							<input type='text' name='name' placeholder='Ваше имя' />
-							<input type='tel' name='tel' placeholder='+ 7 (___)___-__-__' />
+							<input type='tel' name='tel' placeholder='+ 7 (___) ___-__-__' />
 							<button class='btn' data-src='Заявка на курс в сером блоке'>Отправить заявку</button>
 						</form>
 					</div>
@@ -350,7 +350,7 @@
 						<div class='block col-xl-5' style='margin-left: auto;'>
 							<form action='send.php' method='post'>
 								<input type='text' name='name' placeholder='Ваше имя' />
-								<input type='tel' name='tel' placeholder='+ 7 (___)___-__-__' />
+								<input type='tel' name='tel' placeholder='+ 7 (___) ___-__-__' />
 								<button class='btn' data-src='Заявка на курс в сером блоке'>Отправить заявку</button>
 								<em class='pdpa'>С <a href='pdpa.html' class='link'>соглашением о персональных данных</a> ознакомлен и согласен</em>
 							</form>
@@ -484,7 +484,7 @@
 							
 							<form action='send.php' method='post'>
 								<input type='text' name='name' placeholder='Ваше имя' />
-								<input type='tel' name='tel' placeholder='+ 7 (___)___-__-__' />
+								<input type='tel' name='tel' placeholder='+ 7 (___) ___-__-__' />
 								<button class='btn' data-src='Заявка на курс в контактах'>Отправить заявку</button>
 								
 								<em class='pdpa'>С <a href='pdpa.html' class='link'>соглашением о персональных данных</a> ознакомлен и согласен</em>
@@ -601,7 +601,7 @@
 									</label>
 									<label>
 										<span>Телефон:</span>
-										<input type='tel' name='tel' value='+7 ' placeholder='+ 7 (___)___--' />
+										<input type='tel' name='tel' placeholder='+ 7 (___) ___-__-__' />
 									</label>
 									<label>
 										<span>Почта:</span>
@@ -669,6 +669,17 @@
 			</div>
 		</section>
 		
+		<script src='https://unpkg.com/imask'></script>
+		<script>
+		if (document.querySelectorAll('[placeholder="+ 7 (___) ___-__-__"]')) {
+			for (let i = 0; i < document.querySelectorAll('[placeholder="+ 7 (___) ___-__-__"]').length; i++) {
+				new IMask(document.querySelectorAll('[placeholder="+ 7 (___) ___-__-__"]')[i], {
+					mask: '+{0 (000) 000-00-00}',
+					lazy: false,
+				})
+			}
+		}
+		</script>
 		<script src='js/index.js'></script>
 	</body>
 	</html>
