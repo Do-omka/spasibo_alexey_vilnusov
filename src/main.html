@@ -54,7 +54,7 @@
 							<li>Консультации</li>
 							<li>Обучение</li>
 						</ul>
-						<a href='recall.html' class='btn' data-src='Заявка на курс в шапке'>Отправить заявку</a>
+						<a href='apply.html' class='btn' data-src='Заявка на курс в шапке'>Отправить заявку</a>
 					</div>
 					<div class='oldynameste col-xl-5'>
 						<img src='img/photo3.png' alt='Фото'/>
@@ -97,7 +97,7 @@
 							Индивидуальная
 							консультация
 						</a>
-						<a href='recall.html' class='link blue'>отправить заявку</a>
+						<a href='apply.html' class='link blue'>отправить заявку</a>
 					</li>
 					
 					<li class='fadeIn col-xl-6'>
@@ -105,7 +105,7 @@
 							Разработка личного
 							финансового плана
 						</a>
-						<a href='recall.html' class='link blue'>отправить заявку</a>
+						<a href='apply.html' class='link blue'>отправить заявку</a>
 					</li>
 					
 					<li class='fadeIn col-xl-5'>
@@ -113,7 +113,7 @@
 							Сопровождение
 							инвестиций
 						</a>
-						<a href='recall.html' class='link blue'>отправить заявку</a>
+						<a href='apply.html' class='link blue'>отправить заявку</a>
 					</li>
 					
 					<li class='fadeIn col-xl-6'>
@@ -121,7 +121,7 @@
 							Обучение профессии
 							финансовый консультант
 						</a>
-						<a href='recall.html' class='link blue'>отправить заявку</a>
+						<a href='apply.html' class='link blue'>отправить заявку</a>
 					</li>
 				</ol>
 			</div>
@@ -197,7 +197,7 @@
 						<p class='type'>
 							Наша команда подбирает <b>индивидуальные решения</b> для руководителей и владельцев бизнеса <b>по созданию капитала, инвестициям, наследованию, страхованию</b> и другим аспектам личного финансового планирования.
 						</p>
-						<a href='recall.html' class='btn btn-2'>Оставить заявку</a>
+						<a href='apply.html' class='btn btn-2'>Оставить заявку</a>
 					</div>
 					<figure class='col-xl-6'>
 						<img src='img/bio-photo.png' alt='Фото' />
@@ -450,7 +450,7 @@
 								сейчас актуальна и
 								востребована в россии
 							</h2>
-							<a href='recall.html' class='btn' data-src='Узнать больше, почему профессия актуальна'>Узнать больше</a>
+							<a href='apply.html' class='btn' data-src='Узнать больше, почему профессия актуальна'>Узнать больше</a>
 						</div>
 						
 						<div class='col-xl-6'>
@@ -586,87 +586,17 @@
 				</div>
 			</div>
 		</footer>
-		
+
 		<section class='popup' id='recall_popup'>
-			<div class='container'>
-				<div class='col-12'>
-					<div class='row justify-content-center'>
-						<div class='form col-xl-6 col-md-8 col-sm-10'>
-							<button type='button' class='icon close'></button>
-							<div class='row justify-content-center'>
-								<form action='send.php' method='post' class='col-xl-8 col-md-10'>
-									<label>
-										<span>Имя:</span>
-										<input type='text' name='name'/>
-									</label>
-									<label>
-										<span>Телефон:</span>
-										<input type='tel' name='tel' placeholder='+ 7 (___) ___-__-__' />
-									</label>
-									<label>
-										<span>Почта:</span>
-										<input type='email' name='email' placeholder='mail@mail.ru' />
-									</label>
-									
-									<label>
-										<span>Какую сумму Вы готовы инвестировать ежемесячно?</span>
-										<select name='month' required>
-											<option disabled selected hidden>Выберите сумму</option>
-											<option>до 30 000р </option>
-											<option>до 70 000 </option>
-											<option>до 200 000р </option>
-											<option>свыше 200 000р</option>
-										</select>
-									</label>
-									
-									<label>
-										<span>Какую сумму Вы хотели бы инвестировать единовременно?</span>
-										<select name='once' required>
-											<option disabled selected hidden>Выберите сумму</option>
-											<option>до 1 млн руб </option>
-											<option>до 3 млн руб </option>
-											<option>до 10 млн руб </option>
-											<option>свыше 10 млн руб</option>
-										</select>
-									</label>
-									
-									<input type='hidden' name='src' />
-									<em class='pdpa'>С <a href='pdpa.html' class='link'>соглашением о персональных данных</a> ознакомлен и согласен</em>
-									<button type='submit' class='btn btn-2'>Отправить заявку</button>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			//= templates/recall.html
+		</section>
+		
+		<section class='popup' id='apply_popup'>
+			//= templates/apply.html
 		</section>
 		
 		<section class='popup' id='pdpa'>
-			<div class='container'>
-				<div class='col-12'>
-					<div class='row justify-content-center'>
-						<div class='form col-12'>
-							<button type='button' class='icon close'></button>
-							<div class='content'>
-								<h2>«Настоящим я даю согласие на обработку персональных данных»</h2>
-								<p>Заполняя настоящую форму, в соответствии с требованиями <i>статьи 9 Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных»</i>, я подтверждаю свое согласие на обработку вносимых в форму моих персональных данных, лицом оказывающим услуги на основании данной формы (далее Оператор), том числе:</p>
-								<ul>
-									<li>1) фамилию, имя, отчество;</li>
-									<li>2) контактный номер телефона;</li>
-									<li>3) адрес электронной почты;</li>
-								</ul>
-								<p>Предоставляю Оператору право осуществлять все действия (операции) с моими персональными данными, включая сбор, систематизацию, накопление, хранение, обновление, изменение, использование, обезличивание, блокирование, уничтожение.</p>
-								<p>Целью обработки персональных данных является оказание мне услуг на основании заполненной формы.</p>
-								<p>Оператор имеет право на обмен (прием и передачу) моими персональными данными с использованием машинных носителей или по каналам связи, с соблюдением мер, обеспечивающих их защиту от несанкционированного доступа.</p>
-								<p>Настоящее согласие действует бессрочно, срок хранения моих персональных данных не ограничен.</p>
-								<p>Оставляю за собой право отозвать свое согласие посредством составления соответствующего письменного документа, который может быть направлен мной в адрес Оператора по почте заказным письмом с уведомлением о вручении либо вручен лично под расписку представителю Оператора.</p>
-								
-								<button type='button' class='btn close'>Понятно</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			//= templates/pdpa.html
 		</section>
 		
 		<script src='https://unpkg.com/imask'></script>

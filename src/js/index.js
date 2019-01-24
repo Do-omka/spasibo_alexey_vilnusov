@@ -75,15 +75,33 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 	}
 	
 	// recall popup
-	let recall = document.querySelectorAll('a[href="recall.html"]')
-	for (let i = 0; i < recall.length; i++) {
-		recall[i].addEventListener('click', (e)=> {
-			e.preventDefault();
-			document.getElementById('recall_popup').querySelector('[name="src"]').value = recall[i].dataset.src;
-			document.getElementById('recall_popup').querySelector('button[type="submit"]').innerHTML = recall[i].innerHTML;
-			document.getElementById('recall_popup').classList.add('active')
-		})
+	let recall
+	if (document.querySelectorAll('a[href="recall.html"]')) {
+		recall = document.querySelectorAll('a[href="recall.html"]')
+		for (let i = 0; i < recall.length; i++) {
+			recall[i].addEventListener('click', (e)=> {
+				e.preventDefault();
+				document.getElementById('recall_popup').querySelector('[name="src"]').value = recall[i].dataset.src;
+				document.getElementById('recall_popup').querySelector('button[type="submit"]').innerHTML = recall[i].innerHTML;
+				document.getElementById('recall_popup').classList.add('active')
+			})
+		}
 	}
+
+	// apply popup
+	let apply
+	if (document.querySelectorAll('a[href="apply.html"]')) {
+		apply = document.querySelectorAll('a[href="apply.html"]')
+		for (let i = 0; i < apply.length; i++) {
+			apply[i].addEventListener('click', (e)=> {
+				e.preventDefault();
+				document.getElementById('apply_popup').querySelector('[name="src"]').value = apply[i].dataset.src;
+				document.getElementById('apply_popup').querySelector('button[type="submit"]').innerHTML = apply[i].innerHTML;
+				document.getElementById('apply_popup').classList.add('active')
+			})
+		}
+	}
+	
 	
 	// close buttons
 	let close = document.querySelectorAll('.close')
