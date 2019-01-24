@@ -56,8 +56,6 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 		})
 	}
 	
-	
-	
 	if (document.querySelector('a[href="#special"]')) {
 		document.querySelector('a[href="#special"]').addEventListener('click',(e)=> {
 			e.preventDefault();
@@ -67,8 +65,6 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 			})
 		})
 	}
-	
-	
 	
 	// recall popup
 	let recall = document.querySelectorAll('.recall')
