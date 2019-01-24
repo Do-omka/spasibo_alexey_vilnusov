@@ -111,16 +111,34 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 			(function (i) {
 				setTimeout(()=> {
 					li[i].classList.remove('preload')
-					
 				}, 500 * i)
 			})(i)
 		}
 		
 	})
+
+	let fadeIn
+	if (document.querySelector('ol.fadeIn')) {
+		fadeIn = onVisibilityChange(document.querySelector('ol.fadeIn'), function() {
+			let li = document.querySelectorAll('ol.fadeIn li')
+			
+			for (let i = 0; i < li.length; i++) {
+				setTimeout(()=> {
+					li[i].classList.remove('fadeIn')
+				}, 500 * i)
+			}
+			
+		})
+	}
 	
 	addEventListener('DOMContentLoaded', handlerType, false)
 	addEventListener('scroll', handlerType, false)
 	addEventListener('resize', handlerType, false)
+
+	addEventListener('DOMContentLoaded', fadeIn, false)
+	addEventListener('scroll', fadeIn, false)
+	addEventListener('resize', fadeIn, false)
+	
 	addEventListener('DOMContentLoaded', handlerFlow, false)
 	addEventListener('scroll', handlerFlow, false)
 	addEventListener('resize', handlerFlow, false)
