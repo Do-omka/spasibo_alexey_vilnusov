@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 	}
 	
 	// recall popup
-	let recall = document.querySelectorAll('.recall')
+	let recall = document.querySelectorAll('a[href="recall.html"]')
 	for (let i = 0; i < recall.length; i++) {
 		recall[i].addEventListener('click', (e)=> {
 			e.preventDefault();
