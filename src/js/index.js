@@ -21,33 +21,30 @@ function onVisibilityChange(el, callback) {
 	}
 }
 
-function type(slctr) {
-	let text=[], textCont=[]
-	text = document.querySelectorAll(slctr)
+function type(text) {
+	if (text.classList.contains('type')) {
+		let textCont=[]
+			textCont = text.textContent
+			text.textContent = ''
 	
-	for (let i = 0; i < text.length; i++) {
-		textCont[i] = text[i].textContent
-		text[i].textContent = ''
-	}
-	
-	for (let j = 0; j < text.length; j++) {
-		(function(j) {
+		for (let i = 0; i < textCont.length; i++) {
 			setTimeout(function() {
-				for (let i = 0; i < textCont[j].length; i++) {
-					(function(i) {
-						setTimeout(function() {
-							let texts = document.createTextNode(textCont[j][i])
-							text[j].appendChild(texts)
-							text[j].classList.remove('type')
-						}, 10 * i)
-					}(i))
-				}
-			},	10 * j)
-		}(j))
+				let texts = document.createTextNode(textCont[i])
+				text.appendChild(texts)
+				text.classList.remove('type')
+			}, 10 * i)
+		}
 	}
+
+	// removeEventListener('DOMContentLoaded', handlerType, false)
+	// removeEventListener('scroll', handlerType, false)
+	// removeEventListener('resize', handlerType, false)
 }
 
 document.addEventListener('DOMContentLoaded', (e)=> {
+
+	type(document.querySelector('.edu h2'))
+	document.querySelector('.edu h2').textContent=''
 
 	for (let i = 0; i < document.querySelectorAll('a[href="pdpa.html"]').length; i++) {
 		document.querySelectorAll('a[href="pdpa.html"]')[i].addEventListener('click',(e)=> {
@@ -100,10 +97,20 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 		})
 	}
 
-	let handlerType = onVisibilityChange(document.querySelector('.totype'), function() {
-		type('.type')
-	})
-	
+	let toType
+	if (document.querySelectorAll('.type')) {
+		toType = document.querySelectorAll('.type')
+		for (let i = 0; i < toType.length; i++) {
+			let handlerType = onVisibilityChange(toType[i], function() {
+				type(toType[i])
+			})
+			addEventListener('DOMContentLoaded', handlerType, false)
+			addEventListener('scroll', handlerType, false)
+			addEventListener('resize', handlerType, false)
+			console.log('vis');
+		}
+	}
+
 	let handlerFlow = onVisibilityChange(document.querySelector('section.why ol'), function() {
 		let li = document.querySelectorAll('section.why ol li')
 		
@@ -131,9 +138,9 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 		})
 	}
 	
-	addEventListener('DOMContentLoaded', handlerType, false)
-	addEventListener('scroll', handlerType, false)
-	addEventListener('resize', handlerType, false)
+	// addEventListener('DOMContentLoaded', handlerType, false)
+	// addEventListener('scroll', handlerType, false)
+	// addEventListener('resize', handlerType, false)
 
 	addEventListener('DOMContentLoaded', fadeIn, false)
 	addEventListener('scroll', fadeIn, false)
