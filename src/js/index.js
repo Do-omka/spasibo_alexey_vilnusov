@@ -52,7 +52,6 @@ function toCount(el) {
 
 		el.classList.remove('count')
 	}
-	
 }
 
 document.addEventListener('DOMContentLoaded', (e)=> {
@@ -75,9 +74,9 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 	}
 	
 	// recall popup
-	let recall
+	
 	if (document.querySelectorAll('a[href="recall.html"]')) {
-		recall = document.querySelectorAll('a[href="recall.html"]')
+		let recall = document.querySelectorAll('a[href="recall.html"]')
 		for (let i = 0; i < recall.length; i++) {
 			recall[i].addEventListener('click', (e)=> {
 				e.preventDefault();
@@ -89,9 +88,8 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 	}
 
 	// apply popup
-	let apply
 	if (document.querySelectorAll('a[href="apply.html"]')) {
-		apply = document.querySelectorAll('a[href="apply.html"]')
+		let apply = document.querySelectorAll('a[href="apply.html"]')
 		for (let i = 0; i < apply.length; i++) {
 			apply[i].addEventListener('click', (e)=> {
 				e.preventDefault();
@@ -126,9 +124,8 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 		})
 	}
 	
-	let toType
 	if (document.querySelectorAll('.type')) {
-		toType = document.querySelectorAll('.type')
+		let toType = document.querySelectorAll('.type')
 		for (let i = 0; i < toType.length; i++) {
 			let handlerType = onVisibilityChange(toType[i], function() {
 				type(toType[i])
@@ -139,9 +136,8 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 		}
 	}
 	
-	let count
 	if (document.querySelectorAll('.count')) {
-		count = document.querySelectorAll('.count')
+		let count = document.querySelectorAll('.count')
 		for (let i = 0; i < count.length; i++) {
 			let handler = onVisibilityChange(count[i], function() {
 				toCount(count[i])
@@ -162,10 +158,12 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 		}
 		
 	})
+	addEventListener('DOMContentLoaded', handlerFlow, false)
+	addEventListener('scroll', handlerFlow, false)
+	addEventListener('resize', handlerFlow, false)
 	
-	let fadeIn
 	if (document.querySelector('ol.fadeIn')) {
-		fadeIn = onVisibilityChange(document.querySelector('ol.fadeIn'), function() {
+		let fadeIn = onVisibilityChange(document.querySelector('ol.fadeIn'), function() {
 			let li = document.querySelectorAll('ol.fadeIn li')
 			
 			for (let i = 0; i < li.length; i++) {
@@ -173,13 +171,15 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 					li[i].classList.remove('fadeIn')
 				}, 500 * i)
 			}
-			
 		})
+		
+		addEventListener('DOMContentLoaded', fadeIn, false)
+		addEventListener('scroll', fadeIn, false)
+		addEventListener('resize', fadeIn, false)
 	}
 	
-	let zoomIn
 	if (document.querySelectorAll('.zoomIn')) {
-		zoomIn = document.querySelectorAll('.zoomIn')
+		let zoomIn = document.querySelectorAll('.zoomIn')
 		for (let i = 0; i < zoomIn.length; i++) {
 			let handler = onVisibilityChange(zoomIn[i], function() {
 				zoomIn[i].classList.remove('zoomIn')
@@ -189,26 +189,6 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 			addEventListener('resize', handler, false)
 		}
 	}
-	
-	if (document.querySelector('ol.fadeIn')) {
-		fadeIn = onVisibilityChange(document.querySelector('ol.fadeIn'), function() {
-			let li = document.querySelectorAll('ol.fadeIn li')
-			
-			for (let i = 0; i < li.length; i++) {
-				setTimeout(()=> {
-					li[i].classList.remove('fadeIn')
-				}, 500 * i)
-			}
-			
-		})
-	}
-	
-	addEventListener('DOMContentLoaded', fadeIn, false)
-	addEventListener('scroll', fadeIn, false)
-	addEventListener('resize', fadeIn, false)
-	
-	addEventListener('DOMContentLoaded', handlerFlow, false)
-	addEventListener('scroll', handlerFlow, false)
-	addEventListener('resize', handlerFlow, false)
+
 	
 })
