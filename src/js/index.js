@@ -37,6 +37,24 @@ function type(text) {
 	}
 }
 
+function toCount(el) {
+	if (el.classList.contains('count')) {
+		let incr = Number(el.innerHTML) / 1000
+		let v = 0
+		el.innerHTML = '0'
+		
+		for (let i = 0; i < 1000; i++) {
+			setTimeout(function() {
+				v += incr
+				el.innerHTML = Math.round(v)
+			}, i * 1)
+		}
+
+		el.classList.remove('count')
+	}
+	
+}
+
 document.addEventListener('DOMContentLoaded', (e)=> {
 	
 	for (let i = 0; i < document.querySelectorAll('a[href="pdpa.html"]').length; i++) {
@@ -102,19 +120,19 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 			addEventListener('resize', handlerType, false)
 		}
 	}
-
-	// let toCount
-	// if (document.querySelectorAll('.count')) {
-	// 	toCount = document.querySelectorAll('.count')
-	// 	for (let i = 0; i < toType.length; i++) {
-	// 		let handlerCount = onVisibilityChange(toCount[i], function() {
-	// 			count(toCount[i])
-	// 		})
-	// 		addEventListener('DOMContentLoaded', handlerCount, false)
-	// 		addEventListener('scroll', handlerCount, false)
-	// 		addEventListener('resize', handlerCount, false)
-	// 	}
-	// }
+	
+	let count
+	if (document.querySelectorAll('.count')) {
+		count = document.querySelectorAll('.count')
+		for (let i = 0; i < count.length; i++) {
+			let handler = onVisibilityChange(count[i], function() {
+				toCount(count[i])
+			})
+			addEventListener('DOMContentLoaded', handler, false)
+			addEventListener('scroll', handler, false)
+			addEventListener('resize', handler, false)
+		}
+	}
 	
 	let handlerFlow = onVisibilityChange(document.querySelector('section.why ol'), function() {
 		let li = document.querySelectorAll('section.why ol li')
