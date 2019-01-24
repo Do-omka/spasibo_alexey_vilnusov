@@ -1096,18 +1096,23 @@ section.teachers {
 		opacity: 1;
 		z-index: 3;
 	}
-	
+
 	.form {
+		max-height: 95vh;
+		overflow-y: auto;
 		border-radius: 5px;
 		box-shadow: 15px 16px 26px 3px rgba(0, 0, 0, 0.28);
 		
-		padding-top: 75rem;
-		padding-bottom: 75rem;
-		
-		@media @md {
-			padding-top: 50rem;
-			padding-bottom: 50rem;
+		padding-top: 50rem;
+		padding-bottom: 25rem;
+		> :last-child {
+			padding-bottom: 25rem;
 		}
+		
+		// @media @md {
+		// 	padding-top: 50rem;
+		// 	padding-bottom: 50rem;
+		// }
 		
 		// @media @sm {
 		// 	padding-top: 25rem;
@@ -1117,12 +1122,12 @@ section.teachers {
 	
 	.icon.close {
 		position: absolute;
-		right: 30rem;
-		top: 30rem;
-		width: 15px;
-		height: 15px;
+		right: 25rem;
+		top: 25rem;
+		width: 15rem;
+		height: 15rem;
 		opacity: .5;
-		cursor: pointer;
+		// transform: translate(100%, -100%);
 		
 		&:hover {
 			opacity: 1;
@@ -1133,7 +1138,7 @@ section.teachers {
 			position: absolute;
 			content: ' ';
 			height: 2px;
-			width: 20px;
+			width: 20rem;
 			background-color: #9b9b9b;
 		}
 		&:before {
@@ -1159,6 +1164,10 @@ section.teachers {
 	
 	form {
 		margin:0;
+	}
+	
+	h2 {
+		margin-bottom:  1em;
 	}
 	
 	.btn {
@@ -1213,15 +1222,6 @@ section.teachers {
 
 #pdpa {
 	font-size: 20rem;
-	
-	.form {
-		height: 90vh;
-		overflow-y: scroll;
-	}
-	
-	.content > * {
-		margin-bottom: 1.25em;
-	}
 }
 
 section.plan {
