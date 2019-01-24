@@ -35,16 +35,9 @@ function type(text) {
 			}, 10 * i)
 		}
 	}
-	
-	// removeEventListener('DOMContentLoaded', handlerType, false)
-	// removeEventListener('scroll', handlerType, false)
-	// removeEventListener('resize', handlerType, false)
 }
 
 document.addEventListener('DOMContentLoaded', (e)=> {
-	
-	type(document.querySelector('.edu h2'))
-	document.querySelector('.edu h2').textContent=''
 	
 	for (let i = 0; i < document.querySelectorAll('a[href="pdpa.html"]').length; i++) {
 		document.querySelectorAll('a[href="pdpa.html"]')[i].addEventListener('click',(e)=> {
@@ -109,6 +102,19 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 			addEventListener('resize', handlerType, false)
 		}
 	}
+
+	// let toCount
+	// if (document.querySelectorAll('.count')) {
+	// 	toCount = document.querySelectorAll('.count')
+	// 	for (let i = 0; i < toType.length; i++) {
+	// 		let handlerCount = onVisibilityChange(toCount[i], function() {
+	// 			count(toCount[i])
+	// 		})
+	// 		addEventListener('DOMContentLoaded', handlerCount, false)
+	// 		addEventListener('scroll', handlerCount, false)
+	// 		addEventListener('resize', handlerCount, false)
+	// 	}
+	// }
 	
 	let handlerFlow = onVisibilityChange(document.querySelector('section.why ol'), function() {
 		let li = document.querySelectorAll('section.why ol li')
