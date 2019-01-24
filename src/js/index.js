@@ -24,9 +24,9 @@ function onVisibilityChange(el, callback) {
 function type(text) {
 	if (text.classList.contains('type')) {
 		let textCont=[]
-			textCont = text.textContent
-			text.textContent = ''
-	
+		textCont = text.textContent
+		text.textContent = ''
+		
 		for (let i = 0; i < textCont.length; i++) {
 			setTimeout(function() {
 				let texts = document.createTextNode(textCont[i])
@@ -35,17 +35,17 @@ function type(text) {
 			}, 10 * i)
 		}
 	}
-
+	
 	// removeEventListener('DOMContentLoaded', handlerType, false)
 	// removeEventListener('scroll', handlerType, false)
 	// removeEventListener('resize', handlerType, false)
 }
 
 document.addEventListener('DOMContentLoaded', (e)=> {
-
+	
 	type(document.querySelector('.edu h2'))
 	document.querySelector('.edu h2').textContent=''
-
+	
 	for (let i = 0; i < document.querySelectorAll('a[href="pdpa.html"]').length; i++) {
 		document.querySelectorAll('a[href="pdpa.html"]')[i].addEventListener('click',(e)=> {
 			e.preventDefault();
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 			e.stopPropagation()
 		})
 	}
-
+	
 	let toType
 	if (document.querySelectorAll('.type')) {
 		toType = document.querySelectorAll('.type')
@@ -107,23 +107,20 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 			addEventListener('DOMContentLoaded', handlerType, false)
 			addEventListener('scroll', handlerType, false)
 			addEventListener('resize', handlerType, false)
-			console.log('vis');
 		}
 	}
-
+	
 	let handlerFlow = onVisibilityChange(document.querySelector('section.why ol'), function() {
 		let li = document.querySelectorAll('section.why ol li')
 		
 		for (let i = 0; i < li.length; i++) {
-			(function (i) {
-				setTimeout(()=> {
-					li[i].classList.remove('preload')
-				}, 500 * i)
-			})(i)
+			setTimeout(()=> {
+				li[i].classList.remove('preload')
+			}, 500 * i)
 		}
 		
 	})
-
+	
 	let fadeIn
 	if (document.querySelector('ol.fadeIn')) {
 		fadeIn = onVisibilityChange(document.querySelector('ol.fadeIn'), function() {
@@ -138,10 +135,32 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 		})
 	}
 	
-	// addEventListener('DOMContentLoaded', handlerType, false)
-	// addEventListener('scroll', handlerType, false)
-	// addEventListener('resize', handlerType, false)
-
+	let zoomIn
+	if (document.querySelectorAll('.zoomIn')) {
+		zoomIn = document.querySelectorAll('.zoomIn')
+		for (let i = 0; i < zoomIn.length; i++) {
+			let handler = onVisibilityChange(zoomIn[i], function() {
+				zoomIn[i].classList.remove('zoomIn')
+			})
+			addEventListener('DOMContentLoaded', handler, false)
+			addEventListener('scroll', handler, false)
+			addEventListener('resize', handler, false)
+		}
+	}
+	
+	if (document.querySelector('ol.fadeIn')) {
+		fadeIn = onVisibilityChange(document.querySelector('ol.fadeIn'), function() {
+			let li = document.querySelectorAll('ol.fadeIn li')
+			
+			for (let i = 0; i < li.length; i++) {
+				setTimeout(()=> {
+					li[i].classList.remove('fadeIn')
+				}, 500 * i)
+			}
+			
+		})
+	}
+	
 	addEventListener('DOMContentLoaded', fadeIn, false)
 	addEventListener('scroll', fadeIn, false)
 	addEventListener('resize', fadeIn, false)
