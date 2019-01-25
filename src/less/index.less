@@ -20,10 +20,11 @@
 	src: url('../fonts/NissanBrand-Light.ttf') format('truetype');
 }
 
-@xl: ~'(max-width: 1200px)';
-@lg: ~'(max-width: 992px)';
-@md: ~'(max-width: 768px)';
-@sm: ~'(max-width: 576px)';
+@xl: (max-width: 1200px);
+@lg: (max-width: 992px);
+@md: (max-width: 768px);
+@sm: (max-width: 576px);
+@xs: (max-width: 400px);
 
 @blue: #0068e3;
 @bg: #13599f;
@@ -41,6 +42,9 @@
 }
 @media @sm {
 	// max-width: 576px
+}
+@media @xs {
+	// max-width: 400px
 }
 
 * {
@@ -80,6 +84,10 @@ html {
 	@media @sm {
 		font-size: .7px;
 	}
+	@media @xs {
+		font-size: .65px;
+	}
+	
 }
 
 a[href],
@@ -359,12 +367,20 @@ ul.disc {
 
 body > header {
 	padding-top: 50rem;
+
+	@media @xs {
+		padding-top: 25rem;
+	}
 	
 	.header {
 		justify-content: space-between;
 		
 		> * {
 			margin-bottom: 45rem;
+			
+			@media @xs {
+				margin-bottom: 25rem;
+			}
 		}
 	}
 	
@@ -431,7 +447,7 @@ body > header {
 	.cell {
 		.number {
 			color: @blue;
-			font-size: 30px;
+			font-size: 30rem;
 			font-weight: 700;
 		}
 	}
@@ -919,7 +935,7 @@ section.more {
 	}
 	
 	.collage {
-		[class*='col'] {
+		[class*='col-'] {
 			margin: 0;
 		}
 
