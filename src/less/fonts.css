@@ -1,0 +1,38 @@
+@font-face {
+	font-family: 'Nissan Brand';
+	src: url('../fonts/NissanBrand-Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Nissan Brand';
+	font-weight: 700;
+	src: url('../fonts/NissanBrand-Bold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Nissan Brand - Bold';
+	font-weight: 700;
+	src: url('../fonts/NissanBrand-Bold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Nissan Brand - Light';
+	src: url('../fonts/NissanBrand-Light.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Nissan Brand - Light';
+	src: url('../fonts/NissanBrand-Light.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Rodeo';
+	src: url('../fonts/RDO____.otf') format('opentype');
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Rodeo';
+	src: url('../fonts/RDO___.otf') format('opentype');
+	font-weight: bold;
+}
