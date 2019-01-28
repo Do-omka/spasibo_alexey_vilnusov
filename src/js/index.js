@@ -190,5 +190,9 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 		}
 	}
 
+	if (bio_slider_recall) {
+		console.log(bio_slider_recall);
+	}
+
 	
 })
