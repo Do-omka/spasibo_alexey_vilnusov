@@ -199,6 +199,7 @@ blockquote {
 	font-weight: bold;
 	font-style: italic;
 	color: #2c262a;
+	letter-spacing: 0.5rem;
 	margin-bottom: 35rem;
 	
 	&::before {
@@ -758,9 +759,13 @@ section.features {
 	
 	ul {
 		justify-content: flex-start;
+		margin-left: 7.5rem;
+		margin-right: 7.5rem;
 		
 		li {
 			color: @blue;
+			padding-left: 7.5rem;
+			padding-right: 7.5rem;
 			margin-bottom: 15rem;
 			
 			&:last-child .item {
@@ -776,12 +781,14 @@ section.features {
 	
 	.item {
 		height: 100%;
-		padding: 30rem;
+		padding: 25rem;
+		padding-bottom: 40rem;
 		box-shadow: 4px 5px 9px rgba(0, 0, 0, 0.18);
 		background-color: #ffffff;
 		font-weight: 700;
 		text-transform: uppercase;
 		text-align: center;
+		justify-content: space-between;
 		
 		img {
 			align-self: center;
