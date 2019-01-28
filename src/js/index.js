@@ -189,10 +189,5 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 			addEventListener('resize', handler, false)
 		}
 	}
-
-	if (bio_slider_recall) {
-		console.log(bio_slider_recall);
-	}
-
 	
 })
