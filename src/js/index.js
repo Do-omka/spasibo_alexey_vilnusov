@@ -21,18 +21,15 @@ function onVisibilityChange(el, callback) {
 	}
 }
 
-function toType(text, handler) {
-	if (text.classList.contains('type')) {
-		let textCont=[]
-		textCont = text.textContent
-		text.textContent = ''
-		
-		for (let i = 0; i < textCont.length; i++) {
+function toType(el, to, handler) {
+	if (el.classList.contains('type')) {
+
+		for (let i = 0; i < to.length; i++) {
 			setTimeout(function() {
-				let texts = document.createTextNode(textCont[i])
-				text.appendChild(texts)
-				text.classList.remove('type')
-			}, 10 * i)
+				let texts = document.createTextNode(to[i])
+				el.appendChild(texts)
+				el.classList.remove('type')
+			}, 8 * i)
 		}
 		
 		removeEventListener('DOMContentLoaded', handler, false)
@@ -41,11 +38,10 @@ function toType(text, handler) {
 	}
 }
 
-function toCount(el, handler) {
+function toCount(el, to, handler) {
 	if (el.classList.contains('count')) {
-		let incr = Number(el.innerHTML) / 1000
+		let incr = to / 1000
 		let v = 0
-		el.innerHTML = '0'
 		
 		for (let i = 0; i < 1000; i++) {
 			setTimeout(function() {
@@ -80,7 +76,6 @@ addEventListener('DOMContentLoaded', (e)=> {
 	}
 	
 	// recall popup
-	
 	if (document.querySelectorAll('a[href="recall.html"]')) {
 		let recall = document.querySelectorAll('a[href="recall.html"]')
 		for (let i = 0; i < recall.length; i++) {
@@ -132,9 +127,11 @@ addEventListener('DOMContentLoaded', (e)=> {
 	
 	if (document.querySelectorAll('.type')) {
 		let ttype = document.querySelectorAll('.type')
-		for (let i = 0; i < toType.length; i++) {
+		for (let i = 0; i < ttype.length; i++) {
+			let to = ttype[i].textContent
+			ttype[i].textContent = ''
 			let handler = onVisibilityChange(ttype[i], function() {
-				toType(ttype[i], handler)
+				toType(ttype[i], to, handler)
 			})
 			addEventListener('DOMContentLoaded', handler, false)
 			addEventListener('scroll', handler, false)
@@ -145,9 +142,11 @@ addEventListener('DOMContentLoaded', (e)=> {
 	if (document.querySelectorAll('.count')) {
 		let count = document.querySelectorAll('.count')
 		for (let i = 0; i < count.length; i++) {
+			let to = Number(count[i].innerHTML)
 			let handler = onVisibilityChange(count[i], function() {
-				toCount(count[i], handler)
+				toCount(count[i], to, handler)
 			})
+			count[i].innerHTML = 0;
 			addEventListener('DOMContentLoaded', handler, false)
 			addEventListener('scroll', handler, false)
 			addEventListener('resize', handler, false)
@@ -155,6 +154,11 @@ addEventListener('DOMContentLoaded', (e)=> {
 	}
 	
 	if (document.querySelector('section.why ol')) {
+		let li = document.querySelectorAll('section.why ol li')
+		for (let i = 0; i < li.length; i++) {
+				li[i].classList.add('preload')
+		}
+		
 		let handler = onVisibilityChange(document.querySelector('section.why ol'), function() {
 			let li = document.querySelectorAll('section.why ol li')
 			
@@ -171,12 +175,17 @@ addEventListener('DOMContentLoaded', (e)=> {
 	}
 	
 	if (document.querySelector('ol.fadeIn')) {
+		let li = document.querySelectorAll('ol.fadeIn li')
+		for (let i = 0; i < li.length; i++) {
+				li[i].classList.add('preload')
+		}
+		
 		let handler = onVisibilityChange(document.querySelector('ol.fadeIn'), function() {
 			let li = document.querySelectorAll('ol.fadeIn li')
 			
 			for (let i = 0; i < li.length; i++) {
 				setTimeout(()=> {
-					li[i].classList.remove('fadeIn')
+					li[i].classList.remove('preload')
 				}, 500 * i)
 			}
 		})
@@ -189,8 +198,12 @@ addEventListener('DOMContentLoaded', (e)=> {
 	if (document.querySelectorAll('.zoomIn')) {
 		let zoomIn = document.querySelectorAll('.zoomIn')
 		for (let i = 0; i < zoomIn.length; i++) {
+				zoomIn[i].classList.add('preload')
+		}
+		
+		for (let i = 0; i < zoomIn.length; i++) {
 			let handler = onVisibilityChange(zoomIn[i], function() {
-				zoomIn[i].classList.remove('zoomIn')
+				zoomIn[i].classList.remove('preload')
 			})
 			addEventListener('DOMContentLoaded', handler, false)
 			addEventListener('scroll', handler, false)
