@@ -21,7 +21,7 @@ function onVisibilityChange(el, callback) {
 	}
 }
 
-function type(text) {
+function toType(text, handler) {
 	if (text.classList.contains('type')) {
 		let textCont=[]
 		textCont = text.textContent
@@ -34,10 +34,14 @@ function type(text) {
 				text.classList.remove('type')
 			}, 10 * i)
 		}
+		
+		removeEventListener('DOMContentLoaded', handler, false)
+		removeEventListener('scroll', handler, false)
+		removeEventListener('resize', handler, false)
 	}
 }
 
-function toCount(el) {
+function toCount(el, handler) {
 	if (el.classList.contains('count')) {
 		let incr = Number(el.innerHTML) / 1000
 		let v = 0
@@ -49,12 +53,14 @@ function toCount(el) {
 				el.innerHTML = Math.round(v)
 			}, i * 1)
 		}
-
 		el.classList.remove('count')
+		removeEventListener('DOMContentLoaded', handler, false)
+		removeEventListener('scroll', handler, false)
+		removeEventListener('resize', handler, false)
 	}
 }
 
-document.addEventListener('DOMContentLoaded', (e)=> {
+addEventListener('DOMContentLoaded', (e)=> {
 	
 	for (let i = 0; i < document.querySelectorAll('a[href="pdpa.html"]').length; i++) {
 		document.querySelectorAll('a[href="pdpa.html"]')[i].addEventListener('click',(e)=> {
@@ -125,22 +131,10 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 	}
 	
 	if (document.querySelectorAll('.type')) {
-		let toType = document.querySelectorAll('.type')
+		let ttype = document.querySelectorAll('.type')
 		for (let i = 0; i < toType.length; i++) {
-			let handlerType = onVisibilityChange(toType[i], function() {
-				type(toType[i])
-			})
-			addEventListener('DOMContentLoaded', handlerType, false)
-			addEventListener('scroll', handlerType, false)
-			addEventListener('resize', handlerType, false)
-		}
-	}
-	
-	if (document.querySelectorAll('.count')) {
-		let count = document.querySelectorAll('.count')
-		for (let i = 0; i < count.length; i++) {
-			let handler = onVisibilityChange(count[i], function() {
-				toCount(count[i])
+			let handler = onVisibilityChange(ttype[i], function() {
+				toType(ttype[i], handler)
 			})
 			addEventListener('DOMContentLoaded', handler, false)
 			addEventListener('scroll', handler, false)
@@ -148,22 +142,36 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 		}
 	}
 	
-	let handlerFlow = onVisibilityChange(document.querySelector('section.why ol'), function() {
-		let li = document.querySelectorAll('section.why ol li')
-		
-		for (let i = 0; i < li.length; i++) {
-			setTimeout(()=> {
-				li[i].classList.remove('preload')
-			}, 500 * i)
+	if (document.querySelectorAll('.count')) {
+		let count = document.querySelectorAll('.count')
+		for (let i = 0; i < count.length; i++) {
+			let handler = onVisibilityChange(count[i], function() {
+				toCount(count[i], handler)
+			})
+			addEventListener('DOMContentLoaded', handler, false)
+			addEventListener('scroll', handler, false)
+			addEventListener('resize', handler, false)
 		}
-		
-	})
-	addEventListener('DOMContentLoaded', handlerFlow, false)
-	addEventListener('scroll', handlerFlow, false)
-	addEventListener('resize', handlerFlow, false)
+	}
+	
+	if (document.querySelector('section.why ol')) {
+		let handler = onVisibilityChange(document.querySelector('section.why ol'), function() {
+			let li = document.querySelectorAll('section.why ol li')
+			
+			for (let i = 0; i < li.length; i++) {
+				setTimeout(()=> {
+					li[i].classList.remove('preload')
+				}, 500 * i)
+			}
+			
+		})
+		addEventListener('DOMContentLoaded', handler, false)
+		addEventListener('scroll', handler, false)
+		addEventListener('resize', handler, false)
+	}
 	
 	if (document.querySelector('ol.fadeIn')) {
-		let fadeIn = onVisibilityChange(document.querySelector('ol.fadeIn'), function() {
+		let handler = onVisibilityChange(document.querySelector('ol.fadeIn'), function() {
 			let li = document.querySelectorAll('ol.fadeIn li')
 			
 			for (let i = 0; i < li.length; i++) {
@@ -173,9 +181,9 @@ document.addEventListener('DOMContentLoaded', (e)=> {
 			}
 		})
 		
-		addEventListener('DOMContentLoaded', fadeIn, false)
-		addEventListener('scroll', fadeIn, false)
-		addEventListener('resize', fadeIn, false)
+		addEventListener('DOMContentLoaded', handler, false)
+		addEventListener('scroll', handler, false)
+		addEventListener('resize', handler, false)
 	}
 	
 	if (document.querySelectorAll('.zoomIn')) {
