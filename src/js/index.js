@@ -32,7 +32,6 @@ function toType(el, to, handler) {
 			}, 8 * i)
 		}
 		
-		removeEventListener('DOMContentLoaded', handler, false)
 		removeEventListener('scroll', handler, false)
 		removeEventListener('resize', handler, false)
 	}
@@ -50,7 +49,7 @@ function toCount(el, to, handler) {
 			}, i * 1)
 		}
 		el.classList.remove('count')
-		removeEventListener('DOMContentLoaded', handler, false)
+		
 		removeEventListener('scroll', handler, false)
 		removeEventListener('resize', handler, false)
 	}
@@ -133,7 +132,7 @@ addEventListener('DOMContentLoaded', (e)=> {
 			let handler = onVisibilityChange(ttype[i], function() {
 				toType(ttype[i], to, handler)
 			})
-			addEventListener('DOMContentLoaded', handler, false)
+			handler()
 			addEventListener('scroll', handler, false)
 			addEventListener('resize', handler, false)
 		}
@@ -147,7 +146,7 @@ addEventListener('DOMContentLoaded', (e)=> {
 				toCount(count[i], to, handler)
 			})
 			count[i].innerHTML = 0;
-			addEventListener('DOMContentLoaded', handler, false)
+			handler()
 			addEventListener('scroll', handler, false)
 			addEventListener('resize', handler, false)
 		}
@@ -169,7 +168,7 @@ addEventListener('DOMContentLoaded', (e)=> {
 			}
 			
 		})
-		addEventListener('DOMContentLoaded', handler, false)
+		handler()
 		addEventListener('scroll', handler, false)
 		addEventListener('resize', handler, false)
 	}
@@ -190,7 +189,7 @@ addEventListener('DOMContentLoaded', (e)=> {
 			}
 		})
 		
-		addEventListener('DOMContentLoaded', handler, false)
+		handler()
 		addEventListener('scroll', handler, false)
 		addEventListener('resize', handler, false)
 	}
@@ -205,7 +204,7 @@ addEventListener('DOMContentLoaded', (e)=> {
 			let handler = onVisibilityChange(zoomIn[i], function() {
 				zoomIn[i].classList.remove('preload')
 			})
-			addEventListener('DOMContentLoaded', handler, false)
+			handler()
 			addEventListener('scroll', handler, false)
 			addEventListener('resize', handler, false)
 		}
