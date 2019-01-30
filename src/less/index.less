@@ -1498,27 +1498,48 @@ section.contacts {
 
 body > footer {
 	color: white;
+	// font-weight: 300;
 	font-size: 16rem;
+	letter-spacing: 0.48px;
 	padding-top: 35rem;
 	background-color: @bg;
+
+	@media (min-width: 1200px) {
+		[class*='col-'] {
+			margin-bottom: 0;
+		}
+	}
 	
 	h3 {
 		font-weight: 400;
 		text-transform: none;
 	}
+
+	nav {
+		li:first-child {
+			line-height: 26rem;
+		}
+	}
 	
 	li {
 		align-items: flex-start;
-		margin-bottom: 1em;
+		// margin-bottom: .75em;
+		margin-bottom: 12rem;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 	
 	.services {
 		h3 {
 			font-size: 21rem;
+			margin-bottom: 12rem;
 		}
 		
 		ul li::before {
 			color: currentColor;
+			padding-right: 5px;
 		}
 		
 		a {
@@ -1527,15 +1548,38 @@ body > footer {
 	}
 	
 	.blog {
+		[class*='col-'] {
+			margin-bottom: 0;
+		}
+		
 		h3 {
 			font-size: 19rem;
 			text-decoration: underline;
+			margin-bottom: 25rem;
+		}
+
+		a:not(:last-child) article {
+			margin-bottom: 27rem;
 		}
 	}
-	
-	.number {
-		font-size: 22rem;
-		font-weight: 700;
+
+	.cell {
+		.number {
+			font-size: 22rem;
+			letter-spacing: 0.12px;
+			margin-bottom: 17rem;
+			
+			b {
+				font-family: "Nissan Brand - Bold";
+				// font-size: 26rem;
+				font-weight: 700;
+				letter-spacing: 0.14px;
+			}
+		}
+		
+		.link {
+			letter-spacing: 0.48px;
+		}
 	}
 	
 	.copy {
