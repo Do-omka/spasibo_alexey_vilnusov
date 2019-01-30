@@ -23,15 +23,19 @@ function onVisibilityChange(el, callback) {
 
 function toType(el, to, handler) {
 	if (el.classList.contains('type')) {
-
-		for (let i = 0; i < to.length; i++) {
+		let delay, text = to.textContent
+		for (let i = 0; i < text.length; i++) {
 			setTimeout(function() {
-				let texts = document.createTextNode(to[i])
-				el.appendChild(texts)
+				el.innerHTML += text[i]
+				// el.insertAdjacentHTML('beforeend', to[i])
 				el.classList.remove('type')
 			}, 8 * i)
+			delay = 8 * (i)
 		}
-		
+		setTimeout(function() {
+			el.innerHTML = to.innerHTML
+		}, delay)
+
 		removeEventListener('scroll', handler, false)
 		removeEventListener('resize', handler, false)
 	}
@@ -127,7 +131,7 @@ addEventListener('DOMContentLoaded', (e)=> {
 	if (document.querySelectorAll('.type')) {
 		let ttype = document.querySelectorAll('.type')
 		for (let i = 0; i < ttype.length; i++) {
-			let to = ttype[i].textContent
+			let to = ttype[i].cloneNode(true)
 			ttype[i].textContent = ''
 			let handler = onVisibilityChange(ttype[i], function() {
 				toType(ttype[i], to, handler)
