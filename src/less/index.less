@@ -822,6 +822,10 @@ section.topics {
 	
 	ol.topics {
 		// .ol;
+		.h {
+			margin-bottom: 15rem;
+		}
+		
 		> li {
 			margin-bottom: 70rem;
 			font-size: 26rem;
@@ -1425,12 +1429,13 @@ section.plan {
 					counter-increment: i;
 					content: '0' counter(i);
 					position: absolute;
-					top: -40rem;
+					top: -60rem;
 					right: 0;
-					opacity: 0.55;
+					opacity: .55;
 					color: #eeeded;
 					font-family: "Nissan Brand";
 					font-size: 120rem;
+					line-height: 1;
 					font-weight: 700;
 					z-index: -1;
 				}
@@ -1502,6 +1507,7 @@ body > footer {
 	font-size: 16rem;
 	letter-spacing: 0.48px;
 	padding-top: 35rem;
+	padding-bottom: 40rem;
 	background-color: @bg;
 
 	@media (min-width: 1200px) {
