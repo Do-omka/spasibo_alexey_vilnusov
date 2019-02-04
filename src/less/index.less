@@ -1192,29 +1192,93 @@ section.teachers {
 	overflow: hidden;
 	
 	justify-content: center;
-	background-color: rgba(0, 0, 0, 0.2);
+	background-color: rgba(0, 0, 0, .2);
 	opacity: 0;
 	z-index: -1;
 	tabindex: -1;
 
-	&.top_banner {
+	&.banner {
+		height: auto;
+		padding: 7px;
+		padding-right: 60rem;
+		background-color: #ce002c;
 		transition: none;
 
-		.row {
-			flex-wrap: nowrap;
-
-			> * {
-				flex-shrink: 1;
-			}
+		p {
+			color: white;
+			font-size: 16rem;
+			margin: 0;
 		}
 		
-		&.active {
+		a[href='howtoinvest.html'] {
+			background: white;
+			font-size: 16rem;
+			padding: 5rem 10rem;
+			border-radius: 5px;
+			text-decoration: none;
+			margin: 0;
+			text-align: center;
+		}
+		
+		button.close {
+			color: white;
+			text-decoration: none;
+			font-size: 20rem;
+			position: absolute;
+			right: 20rem;
+			height: 1em;
+			width: 1em;
+			margin-top: auto;
+			margin-bottom: auto;
+			align-self: center;
+		}
+
+		&_top {
 			position: sticky;
 			top: 0;
+
+			.row {
+				flex-wrap: nowrap;
+	
+				> * {
+					flex-shrink: 1;
+				}
+			}
+		}
+
+		&_bottom {
+			flex-direction: row;
+			position: fixed;
+			top: auto;
+			bottom: 0;
+			right: 0;
+			padding: 10px;
+			width: 340px;
 			height: auto;
-			padding: 7px;
-			padding-right: 60rem;
-			background-color: #ce002c;
+
+			> .img {
+				height: 100rem;
+				width: 100rem;
+				margin-right: 10rem;
+			}
+
+			> .text {
+				margin-right: 15rem;
+				flex-shrink: 1;
+
+				p {
+					margin-bottom: 10px;
+				}
+			}
+			
+			@media @sm {
+				display: none;
+			}
+
+			button.close {
+				top: 10px;
+				right: 10px;
+			}
 		}
 	}
 	

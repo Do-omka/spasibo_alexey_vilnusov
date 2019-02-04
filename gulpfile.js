@@ -20,9 +20,10 @@ function html() {
 function min_html() {
 	return gulp.src('dev/*.html')
 		.pipe(htmlmin({
-			collapseWhitespace: true,
+			// collapseWhitespace: true,
 		 	removeComments: true,
-			minifyCSS: true
+			minifyCSS: true,
+			minifyJS: true
 		}))
 		.pipe(gulp.dest('docs'))
 }

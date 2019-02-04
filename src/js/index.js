@@ -126,7 +126,7 @@ addEventListener('DOMContentLoaded', (e)=> {
 	}
 	
 	// close popup on click outside
-	let popup_close = document.querySelectorAll('.popup:not(.top_banner)')
+	let popup_close = document.querySelectorAll('.popup:not(.banner)')
 	for (let i = 0; i < popup_close.length; i++) {
 		popup_close[i].addEventListener('click', (e)=> {
 			popup_close[i].classList.remove('active')
