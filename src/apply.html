@@ -13,5 +13,16 @@
 			//= templates/apply.html
 		</section>
 	</main>
+	<script src='https://unpkg.com/imask'></script>
+	<script>
+	if (document.querySelectorAll('[placeholder="+ 7 (___) ___-__-__"]')) {
+		for (let i = 0; i < document.querySelectorAll('[placeholder="+ 7 (___) ___-__-__"]').length; i++) {
+			new IMask(document.querySelectorAll('[placeholder="+ 7 (___) ___-__-__"]')[i], {
+				mask: '{+ 0[00] (000) 000-00-00}',
+				lazy: false,
+			}).value = '7'
+		}
+	}
+	</script>
 </body>
 </html>
