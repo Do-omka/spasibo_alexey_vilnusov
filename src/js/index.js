@@ -64,7 +64,7 @@ addEventListener('DOMContentLoaded', (e)=> {
 	for (let i = 0; i < document.querySelectorAll('a[href="pdpa.html"]').length; i++) {
 		document.querySelectorAll('a[href="pdpa.html"]')[i].addEventListener('click',(e)=> {
 			e.preventDefault();
-			document.getElementById('pdpa').classList.add('active')
+			document.getElementById('pdpa_popup').classList.add('active')
 		})
 	}
 	
