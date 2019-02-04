@@ -9,6 +9,48 @@
 	<link href='css/index.css' type='text/css' rel='stylesheet'>
 </head>
 <body>
+	<section class='top_banner popup active'>
+		<div class='container'>
+			<div class='row' style='justify-content: center; align-items: center;'>
+				<p class='col-auto' style='
+				color: white;
+				font-size: 16rem;
+				margin: 0;
+				'>Бесплатный видеокурс «Как начать инвестировать»</p>
+				
+				<a href='howtoinvest.html' class='col-auto' style='
+				background: white;
+				font-size: 16rem;
+				padding: 5rem 10rem;
+				border-radius: 5px;
+				text-decoration: none;
+				margin: 0;
+				text-align: center;
+				'>Получить доступ</a>
+			</div>
+		</div>
+		<button class='close' style='
+		color: white;
+		text-decoration: none;
+		font-size: 20rem;
+		position: absolute;
+		right: 20rem;
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		/* margin: 0 .07em !important; */
+		margin-top: auto;
+		margin-bottom: auto;
+		align-self: center;
+		vertical-align: middle !important;
+		background: none !important;
+		padding: 0 !important;
+		'>
+			<img draggable="false" class="emoji" alt="✖" src="https://s.w.org/images/core/emoji/11/svg/2716.svg">
+		</button>
+	</section>
 	<header>
 		<div class='container'>
 			<div class='header row'>
@@ -595,6 +637,10 @@
 		
 		<section class='popup' id='pdpa'>
 			//= templates/pdpa.html
+		</section>
+
+		<section class='popup' id='howtoinvest_popup'>
+			//= templates/howtoinvest.html
 		</section>
 		
 		<script src='https://unpkg.com/imask'></script>

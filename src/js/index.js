@@ -103,6 +103,18 @@ addEventListener('DOMContentLoaded', (e)=> {
 			})
 		}
 	}
+
+	// howtoinvest popup
+	if (document.querySelectorAll('a[href="howtoinvest.html"]')) {
+		let howtoinvest = document.querySelectorAll('a[href="howtoinvest.html"]')
+		for (let i = 0; i < howtoinvest.length; i++) {
+			howtoinvest[i].addEventListener('click', (e)=> {
+				e.preventDefault();
+				document.getElementById('howtoinvest_popup').classList.add('active')
+				findAncestor(howtoinvest[i], 'popup').classList.remove('active')
+			})
+		}
+	}
 	
 	
 	// close buttons
@@ -114,7 +126,7 @@ addEventListener('DOMContentLoaded', (e)=> {
 	}
 	
 	// close popup on click outside
-	let popup_close = document.querySelectorAll('.popup')
+	let popup_close = document.querySelectorAll('.popup:not(.top_banner)')
 	for (let i = 0; i < popup_close.length; i++) {
 		popup_close[i].addEventListener('click', (e)=> {
 			popup_close[i].classList.remove('active')

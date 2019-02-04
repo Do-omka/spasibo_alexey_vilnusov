@@ -1195,6 +1195,28 @@ section.teachers {
 	background-color: rgba(0, 0, 0, 0.2);
 	opacity: 0;
 	z-index: -1;
+	tabindex: -1;
+
+	&.top_banner {
+		transition: none;
+
+		.row {
+			flex-wrap: nowrap;
+
+			> * {
+				flex-shrink: 1;
+			}
+		}
+		
+		&.active {
+			position: sticky;
+			top: 0;
+			height: auto;
+			padding: 7px;
+			padding-right: 60rem;
+			background-color: #ce002c;
+		}
+	}
 	
 	&.active {
 		opacity: 1;
@@ -1606,4 +1628,54 @@ li.fadeIn.preload {
 .zoomIn.preload {
 	opacity: 0;
 	transform: scale3d(0.3, 0.3, 0.3);
+}
+
+#howtoinvest_popup {
+	font-size: 16rem;
+	
+	h2 {
+		display: block;
+		font-size: 24rem;
+		margin-bottom: .5em;
+	}
+	
+	p {
+		text-align: center;
+	}
+
+	h3 {
+		font-size: 1em;
+		text-align: left;
+		font-weight: bold;
+		font-family: Arial;
+		text-transform: none;
+		margin-bottom: 10px;
+		text-decoration: underline;
+	}
+
+	ul, ol, li {
+		margin: 0;
+	}
+
+	ol > li {
+		margin-bottom: 20rem;
+	}
+
+	.superbonus {
+		display: block;
+		margin-bottom: 20rem;
+		
+		.blue {
+			font-weight: bold;
+		}
+	}
+
+	input {
+		margin-bottom: 10px;
+	}
+	
+	[class*="col-"] {
+		margin-bottom: 0;
+	}
+
 }
