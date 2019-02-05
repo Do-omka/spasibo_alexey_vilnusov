@@ -1195,14 +1195,15 @@ section.teachers {
 	background-color: rgba(0, 0, 0, .2);
 	opacity: 0;
 	z-index: -1;
-	tabindex: -1;
 
 	&.banner {
-		height: auto;
-		padding: 7px;
-		padding-right: 60rem;
+		height: 0;
 		background-color: #ce002c;
-		transition: none;
+		// transition: none;
+
+		&.active {
+			height: auto;
+		}
 
 		p {
 			color: white;
@@ -1236,7 +1237,12 @@ section.teachers {
 		&_top {
 			position: sticky;
 			top: 0;
-
+			
+			&.active {
+				padding: 7px;
+				padding-right: 60rem;
+			}
+			
 			.row {
 				flex-wrap: nowrap;
 	
@@ -1248,13 +1254,11 @@ section.teachers {
 
 		&_bottom {
 			flex-direction: row;
-			position: fixed;
 			top: auto;
 			bottom: 0;
 			right: 0;
 			padding: 10px;
 			width: 340px;
-			height: auto;
 
 			> .img {
 				height: 100rem;
