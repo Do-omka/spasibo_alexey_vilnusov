@@ -8,19 +8,6 @@ function isElementInViewport (el) {
 	return !(rect.bottom < 0 || rect.right < 0 || rect.left > window.innerWidth || rect.top > window.innerHeight)
 }
 
-function onVisibilityChange(el, callback) {
-	let old_visible = false
-	return function () {
-		let visible = isElementInViewport(el)
-		if (visible != old_visible || visible) {
-			old_visible = visible
-			if (typeof callback == 'function') {
-				callback()
-			}
-		}
-	}
-}
-
 function toType(el, to, handler) {
 	if (el.classList.contains('type')) {
 		let delay, text = to.textContent
@@ -35,7 +22,7 @@ function toType(el, to, handler) {
 		setTimeout(function() {
 			el.innerHTML = to.innerHTML
 		}, delay)
-
+		
 		removeEventListener('scroll', handler, false)
 		removeEventListener('resize', handler, false)
 	}
@@ -90,7 +77,7 @@ addEventListener('DOMContentLoaded', (e)=> {
 			})
 		}
 	}
-
+	
 	// apply popup
 	if (document.querySelectorAll('a[href="apply.html"]')) {
 		let apply = document.querySelectorAll('a[href="apply.html"]')
@@ -103,7 +90,7 @@ addEventListener('DOMContentLoaded', (e)=> {
 			})
 		}
 	}
-
+	
 	// howtoinvest popup
 	if (document.querySelectorAll('a[href="howtoinvest.html"]')) {
 		let howtoinvest = document.querySelectorAll('a[href="howtoinvest.html"]')
@@ -147,9 +134,11 @@ addEventListener('DOMContentLoaded', (e)=> {
 		for (let i = 0; i < ttype.length; i++) {
 			let to = ttype[i].cloneNode(true)
 			ttype[i].textContent = ''
-			let handler = onVisibilityChange(ttype[i], function() {
-				toType(ttype[i], to, handler)
-			})
+			let handler = ()=> {
+				if (isElementInViewport(ttype[i])) {
+					toType(ttype[i], to)
+				}
+			}
 			handler()
 			addEventListener('scroll', handler, false)
 			addEventListener('resize', handler, false)
@@ -160,9 +149,11 @@ addEventListener('DOMContentLoaded', (e)=> {
 		let count = document.querySelectorAll('.count')
 		for (let i = 0; i < count.length; i++) {
 			let to = Number(count[i].innerHTML)
-			let handler = onVisibilityChange(count[i], function() {
-				toCount(count[i], to, handler)
-			})
+			let handler = ()=> {
+				if (isElementInViewport(count[i])) {
+					toCount(count[i], to, handler)
+				}
+			}
 			count[i].innerHTML = 0;
 			handler()
 			addEventListener('scroll', handler, false)
@@ -173,19 +164,18 @@ addEventListener('DOMContentLoaded', (e)=> {
 	if (document.querySelector('section.why ol')) {
 		let li = document.querySelectorAll('section.why ol li')
 		for (let i = 0; i < li.length; i++) {
-				li[i].classList.add('preload')
+			li[i].classList.add('preload')
 		}
-		
-		let handler = onVisibilityChange(document.querySelector('section.why ol'), function() {
-			let li = document.querySelectorAll('section.why ol li')
-			
-			for (let i = 0; i < li.length; i++) {
-				setTimeout(()=> {
-					li[i].classList.remove('preload')
-				}, 500 * i)
+		let handler = ()=> {
+			if (isElementInViewport(document.querySelector('section.why ol'))) {
+				let li = document.querySelectorAll('section.why ol li')
+				for (let i = 0; i < li.length; i++) {
+					setTimeout(()=> {
+						li[i].classList.remove('preload')
+					}, 500 * i)
+				}
 			}
-			
-		})
+		}
 		handler()
 		addEventListener('scroll', handler, false)
 		addEventListener('resize', handler, false)
@@ -194,19 +184,19 @@ addEventListener('DOMContentLoaded', (e)=> {
 	if (document.querySelector('ol.fadeIn')) {
 		let li = document.querySelectorAll('ol.fadeIn li')
 		for (let i = 0; i < li.length; i++) {
-				li[i].classList.add('preload')
+			li[i].classList.add('preload')
 		}
 		
-		let handler = onVisibilityChange(document.querySelector('ol.fadeIn'), function() {
-			let li = document.querySelectorAll('ol.fadeIn li')
-			
-			for (let i = 0; i < li.length; i++) {
-				setTimeout(()=> {
-					li[i].classList.remove('preload')
-				}, 500 * i)
+		let handler = ()=> {
+			if (isElementInViewport(document.querySelector('ol.fadeIn'))) {
+				let li = document.querySelectorAll('ol.fadeIn li')
+				for (let i = 0; i < li.length; i++) {
+					setTimeout(()=> {
+						li[i].classList.remove('preload')
+					}, 500 * i)
+				}
 			}
-		})
-		
+		}
 		handler()
 		addEventListener('scroll', handler, false)
 		addEventListener('resize', handler, false)
@@ -215,13 +205,15 @@ addEventListener('DOMContentLoaded', (e)=> {
 	if (document.querySelectorAll('.zoomIn')) {
 		let zoomIn = document.querySelectorAll('.zoomIn')
 		for (let i = 0; i < zoomIn.length; i++) {
-				zoomIn[i].classList.add('preload')
+			zoomIn[i].classList.add('preload')
 		}
 		
 		for (let i = 0; i < zoomIn.length; i++) {
-			let handler = onVisibilityChange(zoomIn[i], function() {
-				zoomIn[i].classList.remove('preload')
-			})
+			let handler = ()=> {
+				if (isElementInViewport(zoomIn[i])) {
+					zoomIn[i].classList.remove('preload')
+				}
+			}
 			handler()
 			addEventListener('scroll', handler, false)
 			addEventListener('resize', handler, false)
