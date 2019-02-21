@@ -10,55 +10,49 @@
 <body>
 	<main>
 		<section class="popup active" id="apply_popup">
-			<div class="container">
-				<div class="col-12">
-					<div class="row justify-content-center">
-						<div class="form col-xl-6 col-md-8 col-sm-10">
-							<button type="button" class="icon close"></button>
-							<div class="row justify-content-center">
-								<form action="send.php" method="post" class="col-xl-8 col-md-10">
-									<label>
-										<span>Имя:</span>
-										<input type="text" name="name">
-									</label>
-									<label>
-										<span>Телефон:</span>
-										<input type="tel" name="tel" placeholder="+ 7 (___) ___-__-__">
-									</label>
-									<label>
-										<span>Почта:</span>
-										<input type="email" name="email" placeholder="mail@mail.ru">
-									</label>
-									
-									<label>
-										<span>Какую сумму Вы готовы инвестировать ежемесячно?</span>
-										<select name="month" required>
-											<option disabled="disabled" selected="selected" hidden>Выберите сумму</option>
-											<option>до 30 000р </option>
-											<option>до 70 000 </option>
-											<option>до 200 000р </option>
-											<option>свыше 200 000р</option>
-										</select>
-									</label>
-									
-									<label>
-										<span>Какую сумму Вы хотели бы инвестировать единовременно?</span>
-										<select name="once" required>
-											<option disabled="disabled" selected="selected" hidden>Выберите сумму</option>
-											<option>до 1 млн руб </option>
-											<option>до 3 млн руб </option>
-											<option>до 10 млн руб </option>
-											<option>свыше 10 млн руб</option>
-										</select>
-									</label>
-									
-									<input type="hidden" name="src">
-									<em class="pdpa">Я согласен с <a href="pdpa.html" class="link">условиями обработки персональных данных</a></em>
-									<button type="submit" class="btn btn-2">Отправить заявку</button>
-								</form>
-							</div>
-						</div>
-					</div>
+			<div class="form narrow">
+				<button type="button" class="icon close"></button>
+				<div class="row justify-content-center">
+					<form action="send.php" method="post" class="col-sm-8">
+						<label>
+							<span>Имя:</span>
+							<input type="text" name="name">
+						</label>
+						<label>
+							<span>Телефон:</span>
+							<input type="tel" name="tel" placeholder="+ 7 (___) ___-__-__">
+						</label>
+						<label>
+							<span>Почта:</span>
+							<input type="email" name="email" placeholder="mail@mail.ru">
+						</label>
+						
+						<label>
+							<span>Какую сумму Вы готовы инвестировать ежемесячно?</span>
+							<select name="month" required>
+								<option disabled="disabled" selected="selected" hidden>Выберите сумму</option>
+								<option>до 30 000р </option>
+								<option>до 70 000 </option>
+								<option>до 200 000р </option>
+								<option>свыше 200 000р</option>
+							</select>
+						</label>
+						
+						<label>
+							<span>Какую сумму Вы хотели бы инвестировать единовременно?</span>
+							<select name="once" required>
+								<option disabled="disabled" selected="selected" hidden>Выберите сумму</option>
+								<option>до 1 млн руб </option>
+								<option>до 3 млн руб </option>
+								<option>до 10 млн руб </option>
+								<option>свыше 10 млн руб</option>
+							</select>
+						</label>
+						
+						<input type="hidden" name="src">
+						<em class="pdpa">Я согласен с <a href="pdpa.html" class="link">условиями обработки персональных данных</a></em>
+						<button type="submit" class="btn btn-2">Отправить заявку</button>
+					</form>
 				</div>
 			</div>
 		</section>

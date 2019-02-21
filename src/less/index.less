@@ -1196,13 +1196,19 @@ section.teachers {
 	justify-content: center;
 	background-color: rgba(0, 0, 0, .2);
 	opacity: 0;
-	z-index: -1;
+	visibility: hidden;
+	z-index: 3;
 
+	&.active {
+		opacity: 1;
+		visibility: visible;
+	}
+	
 	&.banner {
 		height: 0;
 		background-color: #ce002c;
 		// transition: none;
-
+		
 		&.active {
 			height: auto;
 		}
@@ -1286,11 +1292,6 @@ section.teachers {
 				right: 10px;
 			}
 		}
-	}
-	
-	&.active {
-		opacity: 1;
-		z-index: 3;
 	}
 	
 	.form {
