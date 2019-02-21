@@ -118,7 +118,7 @@ addEventListener('DOMContentLoaded', (e)=> {
 	
 	
 	// close buttons
-	let close = document.querySelectorAll('.close')
+	let close = document.querySelectorAll('button.close')
 	for (let i = 0; i < close.length; i++) {
 		close[i].addEventListener('click', (e)=> {
 			findAncestor(close[i], 'popup').classList.remove('active')
@@ -129,16 +129,18 @@ addEventListener('DOMContentLoaded', (e)=> {
 	let popup_close = document.querySelectorAll('.popup:not(.banner)')
 	for (let i = 0; i < popup_close.length; i++) {
 		popup_close[i].addEventListener('click', (e)=> {
-			popup_close[i].classList.remove('active')
+			if (e.target == popup_close[i]) {
+				popup_close[i].classList.remove('active')
+			}
 		})
 	}
 	
-	let popup_form = document.querySelectorAll('.popup .form')
-	for (let i = 0; i < popup_form.length; i++) {
-		popup_form[i].addEventListener('click', (e)=> {
-			e.stopPropagation()
-		})
-	}
+	// let popup_form = document.querySelectorAll('.popup .form')
+	// for (let i = 0; i < popup_form.length; i++) {
+	// 	popup_form[i].addEventListener('click', (e)=> {
+	// 		e.stopPropagation()
+	// 	})
+	// }
 	
 	if (document.querySelectorAll('.type')) {
 		let ttype = document.querySelectorAll('.type')
