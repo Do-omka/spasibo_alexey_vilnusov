@@ -1093,7 +1093,7 @@ section.teachers {
 		position: relative;
 		margin-bottom: 12rem;
 
-		.penis {
+		.content {
 			max-width: 505rem;
 
 			p {
@@ -1710,15 +1710,6 @@ body > footer {
 	}
 }
 
-li.fadeIn.preload {
-	opacity: 0;
-}
-
-.zoomIn.preload {
-	opacity: 0;
-	transform: scale3d(0.3, 0.3, 0.3);
-}
-
 #howtoinvest_popup {
 	font-size: 16rem;
 	
@@ -1767,4 +1758,19 @@ li.fadeIn.preload {
 		margin-bottom: 0;
 	}
 
+}
+
+li.fadeIn.preload {
+	opacity: 0;
+}
+
+.zoomIn.preload {
+	opacity: 0;
+	transform: scale3d(0.3, 0.3, 0.3);
+}
+
+.type::before,
+.type::after {
+	content: none !important;
+	// display: none;
 }
