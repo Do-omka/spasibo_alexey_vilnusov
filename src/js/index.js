@@ -8,30 +8,37 @@ function isElementInViewport (el) {
 	return !(rect.bottom < 0 || rect.right < 0 || rect.left > window.innerWidth || rect.top > window.innerHeight)
 }
 
+// type animation
 function toType(el, to, handler) {
 	if (el.classList.contains('type')) {
-		let delay, text = to.textContent
-		for (let i = 0; i < text.length; i++) {
-			setTimeout(function() {
-				el.innerHTML += text[i]
-				// el.insertAdjacentHTML('beforeend', to[i])
-				el.classList.remove('type')
-			}, 8 * i)
-			delay = 8 * (i)
-		}
-		setTimeout(function() {
-			el.innerHTML = to.innerHTML
-		}, delay)
-		
+		el.classList.remove('type')
 		removeEventListener('scroll', handler, false)
 		removeEventListener('resize', handler, false)
+		
+		let i = 0, text = to.textContent,
+			rate = 8
+			
+		function next_i() {
+			if (i < text.length) {
+				el.innerHTML += text[i]
+				i++
+				setTimeout(next_i, rate)
+			} else {
+				el.innerHTML = to.innerHTML
+			}
+		}
+		next_i()
 	}
 }
 
+// count animation
 function toCount(el, to, handler) {
 	if (el.classList.contains('count')) {
-		let incr = to / 1000
-		let v = 0
+		el.classList.remove('count')
+		removeEventListener('scroll', handler, false)
+		removeEventListener('resize', handler, false)
+		
+		let i = 0, v = 0, incr = to / 1000
 		
 		for (let i = 0; i < 1000; i++) {
 			setTimeout(function() {
@@ -39,10 +46,25 @@ function toCount(el, to, handler) {
 				el.innerHTML = Math.round(v)
 			}, i * 1)
 		}
-		el.classList.remove('count')
-		
-		removeEventListener('scroll', handler, false)
-		removeEventListener('resize', handler, false)
+
+		// function next_i() {
+		// 	if (i < 1000) {
+		// 		v += incr
+		// 		el.innerHTML = Math.round(v)
+		// 		i++
+		// 		setTimeout(next_i, 0.0001)
+		// 	}
+		// }
+		// next_i()
+
+		// let next_i = setInterval(function() {
+		// 	if (i < 1000) {
+		// 		v += incr
+		// 		el.innerHTML = Math.round(v)
+		// 		i++
+		// 		console.log(0);
+		// 	}
+		// }, 1)
 	}
 }
 
