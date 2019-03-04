@@ -9,63 +9,50 @@ function isElementInViewport (el) {
 }
 
 // type animation
-function toType(el, to, handler) {
-	if (el.classList.contains('type')) {
-		el.classList.remove('type')
-		removeEventListener('scroll', handler, false)
-		removeEventListener('resize', handler, false)
+function toType(el, to) {
+	let i = 0, text = to.textContent,
+		rate = 8
 		
-		let i = 0, text = to.textContent,
-			rate = 8
-			
-		function next_i() {
-			if (i < text.length) {
-				el.innerHTML += text[i]
-				i++
-				setTimeout(next_i, rate)
-			} else {
-				el.innerHTML = to.innerHTML
-			}
+	function next_i() {
+		if (i < text.length) {
+			el.innerHTML += text[i]
+			i++
+			setTimeout(next_i, rate)
+		} else {
+			el.innerHTML = to.innerHTML
 		}
-		next_i()
 	}
+	next_i()
 }
 
 // count animation
-function toCount(el, to, handler) {
-	if (el.classList.contains('count')) {
-		el.classList.remove('count')
-		removeEventListener('scroll', handler, false)
-		removeEventListener('resize', handler, false)
-		
-		let i = 0, v = 0, incr = to / 1000
-		
-		for (let i = 0; i < 1000; i++) {
-			setTimeout(function() {
-				v += incr
-				el.innerHTML = Math.round(v)
-			}, i * 1)
-		}
-
-		// function next_i() {
-		// 	if (i < 1000) {
-		// 		v += incr
-		// 		el.innerHTML = Math.round(v)
-		// 		i++
-		// 		setTimeout(next_i, 0.0001)
-		// 	}
-		// }
-		// next_i()
-
-		// let next_i = setInterval(function() {
-		// 	if (i < 1000) {
-		// 		v += incr
-		// 		el.innerHTML = Math.round(v)
-		// 		i++
-		// 		console.log(0);
-		// 	}
-		// }, 1)
+function toCount(el, to) {
+	let i = 0, v = 0, incr = to / 1000
+	
+	for (let i = 0; i < 1000; i++) {
+		setTimeout(function() {
+			v += incr
+			el.innerHTML = Math.round(v)
+		}, i * 1)
 	}
+
+	// function next_i() {
+	// 	if (i < 1000) {
+	// 		v += incr
+	// 		el.innerHTML = Math.round(v)
+	// 		i++
+	// 		setTimeout(next_i, 0.0001)
+	// 	}
+	// }
+	// next_i()
+
+	// let next_i = setInterval(function() {
+	// 	if (i < 1000) {
+	// 		v += incr
+	// 		el.innerHTML = Math.round(v)
+	// 		i++
+	// 	}
+	// }, 1)
 }
 
 addEventListener('DOMContentLoaded', (e)=> {
@@ -155,15 +142,19 @@ addEventListener('DOMContentLoaded', (e)=> {
 		let ttype = document.querySelectorAll('.type')
 		for (let i = 0; i < ttype.length; i++) {
 			let to = ttype[i].cloneNode(true)
-			ttype[i].textContent = ''
-			let handler = ()=> {
+			ttype[i].textContent = '';
+			function handler() {
 				if (isElementInViewport(ttype[i])) {
+					removeEventListener('scroll', handler)
+					removeEventListener('resize', handler)
+					ttype[i].classList.remove('type')
 					toType(ttype[i], to)
 				}
 			}
+			
+			addEventListener('scroll', handler)
+			addEventListener('resize', handler)
 			handler()
-			addEventListener('scroll', handler, false)
-			addEventListener('resize', handler, false)
 		}
 	}
 	
@@ -171,15 +162,18 @@ addEventListener('DOMContentLoaded', (e)=> {
 		let count = document.querySelectorAll('.count')
 		for (let i = 0; i < count.length; i++) {
 			let to = Number(count[i].innerHTML)
-			let handler = ()=> {
+			function handler() {
 				if (isElementInViewport(count[i])) {
-					toCount(count[i], to, handler)
+					removeEventListener('scroll', handler)
+					removeEventListener('resize', handler)
+					count[i].classList.remove('count')
+					toCount(count[i], to)
 				}
 			}
 			count[i].innerHTML = 0;
+			addEventListener('scroll', handler)
+			addEventListener('resize', handler)
 			handler()
-			addEventListener('scroll', handler, false)
-			addEventListener('resize', handler, false)
 		}
 	}
 	
@@ -188,8 +182,11 @@ addEventListener('DOMContentLoaded', (e)=> {
 		for (let i = 0; i < li.length; i++) {
 			li[i].classList.add('preload')
 		}
-		let handler = ()=> {
+		function handler() {
 			if (isElementInViewport(document.querySelector('section.why ol'))) {
+				removeEventListener('scroll', handler)
+				removeEventListener('resize', handler)
+				
 				let li = document.querySelectorAll('section.why ol li')
 				for (let i = 0; i < li.length; i++) {
 					setTimeout(()=> {
@@ -198,9 +195,9 @@ addEventListener('DOMContentLoaded', (e)=> {
 				}
 			}
 		}
+		addEventListener('scroll', handler)
+		addEventListener('resize', handler)
 		handler()
-		addEventListener('scroll', handler, false)
-		addEventListener('resize', handler, false)
 	}
 	
 	if (document.querySelector('ol.fadeIn')) {
@@ -209,8 +206,11 @@ addEventListener('DOMContentLoaded', (e)=> {
 			li[i].classList.add('preload')
 		}
 		
-		let handler = ()=> {
+		function handler() {
 			if (isElementInViewport(document.querySelector('ol.fadeIn'))) {
+				removeEventListener('scroll', handler)
+				removeEventListener('resize', handler)
+				
 				let li = document.querySelectorAll('ol.fadeIn li')
 				for (let i = 0; i < li.length; i++) {
 					setTimeout(()=> {
@@ -219,9 +219,9 @@ addEventListener('DOMContentLoaded', (e)=> {
 				}
 			}
 		}
+		addEventListener('scroll', handler)
+		addEventListener('resize', handler)
 		handler()
-		addEventListener('scroll', handler, false)
-		addEventListener('resize', handler, false)
 	}
 	
 	if (document.querySelectorAll('.zoomIn')) {
@@ -231,14 +231,17 @@ addEventListener('DOMContentLoaded', (e)=> {
 		}
 		
 		for (let i = 0; i < zoomIn.length; i++) {
-			let handler = ()=> {
+			function handler() {
 				if (isElementInViewport(zoomIn[i])) {
+					removeEventListener('scroll', handler)
+					removeEventListener('resize', handler)
+					
 					zoomIn[i].classList.remove('preload')
 				}
 			}
+			addEventListener('scroll', handler)
+			addEventListener('resize', handler)
 			handler()
-			addEventListener('scroll', handler, false)
-			addEventListener('resize', handler, false)
 		}
 	}
 	
